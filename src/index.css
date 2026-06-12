@@ -1,111 +1,111 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+:root {
+  /* color変数 */
+  --baseColor: rgb(255, 253, 249);
+  --sectionBaseColor: rgb(253, 249, 249);
+  --mainColor: #4a3b34d0;
+  --btnColor: #EFE7DC;
+  --accentColorRed: #d77979b0;
+  --accentColorGreen: #5ea761b0;
+  --questionColor: rgba(2, 31, 74, 0.931);
+  --btnTextColor: #4a3b34d0;
+  --itemShadow: 0.5px 0.5px 0.8px 1.2px #494953d3;
+  --textShadow: 1px 1px 1px #494953d3;
+
+  /* 余白変数 */
+  --space-s: 8px;
+  --space-m: 16px;
+  --space-l: 24px;
+
+  /* 角丸 */
+  --radius: 8px;
+
+  /* font-family */
+  --english: 'メイリオ', 'ヒラギノ角ゴシック', Arial;
+  --japanese: "Noto Sans JP";
+
+  /* ===ダークモード時=== */
+  --darkModeBaseColor: #1a1a1a;
+  --darkModeFontColor: #f9eed9;
+
+  /* ボーダー */
+  --darkModeBorderStyle: 1px solid #909090;
+  --darkModeItemShadow: 0.5px 0.5px 0.8px 1.2px #fafafbd3;
+
+  /* ボタン */
+  --darkModeBtnColor: #be7c4c97;
+  --darkModeItemShadow: 0.5px 0.5px 0.8px 1.2px #dfdfe1d3;
+}
+
+/*===================
+common
+====================*/
+html {
+  font-size: 62.5%;
+  color: rgb(46, 44, 44);
 }
 
 body {
-  margin: 0;
-}
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
+  overflow: hidden;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
+header {
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+.counter-area {
+  justify-self: center;
+  margin-top: 32px;
+  font-size: 1.6rem;
+  font-family: var(--english);
+}
+
+.close-btn,
+.return-menu-btn {
+  font-size: 1.6rem;
+  font-family: var(--japanese);
   font-weight: 500;
-  color: var(--text-h);
+  padding: 10px 0;
+  color: var(--btnTextColor);
+  z-index: 100;
 }
 
 h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
+  width: 130px;
+  height: 50px;
+  color: var(--mainColor);
+  text-shadow: var(--textShadow);
+  font-family:'Times New Roman', Times, serif;
+  font-weight: 700;
+  font-size: 3rem;
+  padding: 10px;
+  text-align: center;
+  /* height: 7%; */
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+main {
+  width: 100vw;
+  height: 100vh;
+  /* display: flex; */
+  /* overflow-y: auto; */
+  /* flex-direction: column; */
+  position: relative;
+  padding: 0 var(--space-l);
 }

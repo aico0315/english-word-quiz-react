@@ -1,0 +1,26 @@
+.menu-area {
+  width: 100%;
+  height: 90%;
+  display: grid;
+  grid-template-rows: 30% 20%;
+  place-items: center;
+  position: relative;
+  /* align-items: center; */
+}
+
+.menu-item {
+  font-size: 3rem;
+  font-family: var(--japanese);
+  color: var(--mainColor);
+  font-weight: 500;
+}
+
+.menuArea-img-area {
+  width: 100%;
+  display: grid;
+}
+
+.menuArea-img-area img {
+  width: 95%;
+  justify-self: center;
+}

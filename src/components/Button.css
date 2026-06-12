@@ -1,0 +1,27 @@
+.primary {
+  font-size: 2.4rem;
+  font-family: var(--japanese);
+  margin: 0 auto;
+  padding: var(--space-s);
+  color: var(--btnTextColor);
+  background-color: var(--btnColor);
+  text-align: center;
+  width: 160px;
+  height: 44px;
+  box-shadow: var(--itemShadow);
+  border-radius: var(--radius);
+}
+
+.text {
+  font-size: 2rem;
+  color: var(--questionColor);
+}
+
+.subtle {
+  font-size: 1.6rem;
+  font-family: var(--japanese);
+  font-weight: 500;
+  padding: 10px 0;
+  color: var(--btnTextColor);
+  z-index: 100;
+}
