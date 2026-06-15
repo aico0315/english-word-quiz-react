@@ -1,5 +1,6 @@
 import SetQuestion from "./SetQuestion";
 import CounterDisplay from "./CounterDisplay";
+import ResultMessageDisplay from "./ResultMessageDisplay";
 import "/src/components/AnswerScreen.css";
 import Button from "./Button";
 import { wordRecords } from "./wordRecords";
@@ -11,14 +12,8 @@ export default function AnswerScreen ({ wordArray }){
   return(
     <div id="answer-view" className="answer-area hidden">
       <CounterDisplay currentNum={DummyCurrentIndex} totalLength={DummyWords} />
-      <div className="result-message-area">
-        <img className="result-message-icon-left" src="/src/assets/correctGirl.svg" alt="腕で大きな丸を作り正解を示す少女" />
-        <p className="result-message">正解！</p>
-        <img className="result-message-icon-left" src="/src/assets/correctBoy@72x.webp" alt="腕で大きな丸を作り正解を示す少年" />
-      </div>
-      {/* <div className="correct-answer-area"> */}
-        <SetQuestion pareClassName="correct-answer-area" wordArray={wordRecords} answer={wordArray} />
-        
+      <ResultMessageDisplay result={true} />
+      <SetQuestion pareClassName="correct-answer-area" className="correct-answerArea-question" wordArray={wordRecords} answer={wordArray} />
         {/* <p className="correct-answer"></p> */}
         {/* <p className="supplement-message"></p> */}
       {/* </div> */}
