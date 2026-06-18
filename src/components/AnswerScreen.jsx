@@ -21,8 +21,8 @@ export default function AnswerScreen ({ wordArray }){
         <p className="user-answer-title">あなたのこたえ</p>
         <p className="user-answer"></p>
       </div>
-      <Button className="next-question-btn" label="次の問題" variant="primary"/>
-      <Button className="return-menu-btn" label="メニューへ戻る" variant="subtle"/>
+      <Button label="次の問題" variant="primary"/>
+      <Button label="メニューへ戻る" variant="subtle"/>
       {/* <button className="next-question-btn">次の問題</button>
       <button className="return-menu-btn">メニューへ戻る</button> */}
     </div>

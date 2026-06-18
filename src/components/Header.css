@@ -1,8 +1,9 @@
 header {
   width: 100vw;
-  height: 50px;
+  height: var(--headerHeight);
   box-shadow: 1px 2px 7px rgba(68, 51, 34, 0.355);
   position: relative;
+  position: fixed;
   z-index: 10;
 }
 

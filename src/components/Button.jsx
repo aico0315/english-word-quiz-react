@@ -1,4 +1,4 @@
-// import "/src/components/Button.css";
+import "/src/components/Button.css";
 
 export default function Button({label, className, variant}){
   return(

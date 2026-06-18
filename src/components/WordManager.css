@@ -1,0 +1,204 @@
+.add-question-area {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  /* display: grid; */
+  grid-template-rows: 15% 15% 15% 25% 19%;
+  gap: var(--space-m);
+  /* place-items: center; */
+  /* width: 100%; */
+  margin-top: var(--space-s);
+  /* padding: var(--space-m) var(--space-s); */
+}
+
+.add-area {
+  /* background-color: var(--sectionBaseColor);
+  box-shadow: var(--itemShadow);
+  border-radius: var(--radius); */
+  display: grid;
+  grid-template-rows: 15% 15% 15% 25% 19%;
+  gap: var(--space-m);
+  place-items: center;
+  width: 100%;
+  margin-top: var(--space-s);
+  padding: var(--space-m) var(--space-s);
+}
+
+.word-category,
+.word-english,
+.word-japanese {
+  padding-left: var(--space-s);
+}
+
+.add-category-area,
+.add-english-area,
+.add-japanese-area {
+  width: 100%;
+  font-size: 1.4rem;
+  color: dimgray;
+}
+
+.add-supplement-area {
+  width: 100%;
+  height: 100%;
+  font-size: 1.4rem;
+  color: dimgray;
+  margin-top: 20px;
+}
+
+.input-category,
+.input-english-word,
+.input-japanese-word {
+  box-shadow: var(--itemShadow);
+  border-radius: var(--radius);
+  width: 100%;
+  height: 100%;
+  font-size: 2rem;
+  margin-top: 5px;
+  padding: 10px;
+}
+
+.input-english-word {
+  font-family: var(--english);
+}
+
+.input-japanese-word {
+  font-family: var(--japanese);
+}
+
+.input-supplementary-information {
+  box-shadow: var(--itemShadow);
+  border-radius: var(--radius);
+  width: 100%;
+  height: 60%;
+  font-size: 1.8rem;
+  font-family: var(--japanese);
+  margin-top: 10px;
+  padding: 10px;
+  white-space: pre-wrap;
+}
+
+.add-btn-area {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 95%;
+  height: 90%;
+}
+
+/* .cancel-btn,
+.add-btn {
+  font-size: 2.2rem;
+  font-family: var(--japanese);
+  text-align: center;
+  padding: var(--space-s);
+  background-color: var(--btnColor);
+  box-shadow: var(--itemShadow);
+  border-radius: var(--radius);
+  width: 95%;
+  height: 75%;
+} */
+
+.cancel-btn {
+  letter-spacing: -0.2rem;
+}
+
+/* 編集エリア */
+.edit-question-area {
+  width: 100%;
+  padding: 0 var(--space-s);
+}
+
+.edit-question-area-title {
+  font-size: 2rem;
+  font-family: var(--japanese);
+  margin-top: 50px;
+}
+
+#editArea-wordList {
+  margin: 40px 0;
+  display: grid;
+  gap: var(--space-l);
+  font-size: 1.6rem;
+  height: auto;
+}
+
+summary {
+  padding-bottom: 7px;
+}
+
+.word-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.2fr;
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--itemShadow);
+  padding: var(--space-s);
+}
+
+.word-summary {
+  justify-self: end;
+}
+
+.word-summary-mark {
+  text-align: end;
+}
+
+.word-item {
+  margin-top: 15px;
+  font-family: var(--japanese);
+  color: dimgray;
+}
+
+.text-ellipsis {
+  width: 145px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.detail-mark {
+  width: 100%;
+  text-align: start;
+}
+
+.word-footer {
+  display: grid;
+  grid-template-columns: 1fr 0.18fr 0.18fr;
+  background-color: var(--btnColor);
+  border-radius: var(--radius);
+  max-height: 100px;  /* 中身が入る十分な高さを指定 */
+  align-items: center;
+  padding: 2px;
+  margin-top: 2px;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+.word-footer p {
+  padding-left: 20px;
+  white-space: pre-wrap;
+}
+
+.edit-btn,
+.delete-btn {
+  width: 22px;
+  height: 25px;
+  justify-self: center;
+  align-self: center;
+}
+.edit-btn-img,
+.delete-btn-img {
+  width: 16px;
+  /* height: 100%; */
+}
+
+.add-category-area,
+.add-english-area,
+.add-japanese-area,
+.add-supplement-area,
+.add-btn-area,
+.edit-question-area {
+  min-width: 0;
+}
+
