@@ -1,14 +1,19 @@
 import getSortedCategories from "../utils/getSortedCategories"
-import { wordRecords } from "./wordRecords";
+import getWordsByCategory from "../utils/GetWordsByCategory";
+import WordAccordion from "./WordAccordion";
 
-export default function CategoryAccordion(){
-  const sortedCategories = getSortedCategories(wordRecords);
+export default function CategoryAccordion({allWords}){
+  const sortedCategories = getSortedCategories(allWords);
 
   return(
-    sortedCategories.map(category =>
-      <details key={category}>
-          <summary>{category}</summary>
-      </details>
+    sortedCategories.map(category => {
+      const words = getWordsByCategory(allWords, category);
+      return(
+        <details key={category}>
+            <summary>{category}</summary>
+            <WordAccordion uniqueCategoryWord={words} />
+        </details>
       )
+    })
   )
 }

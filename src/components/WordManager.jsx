@@ -1,8 +1,10 @@
 import "/src/components/WordManager.css";
 import Button from "./Button";
 import CategoryAccordion from "./CategoryAccordion";
+import { wordRecords } from "./wordRecords";
 
 export default function WordManager(){
+
   return(
     <div id="add-question-view" className="add-question-area">
       {/* <!-- 追加 --> */}
@@ -26,14 +28,12 @@ export default function WordManager(){
       <div className="add-btn-area">
         <Button className="cancel-btn" variant="primary" label="キャンセル"/>
         <Button className="add-btn" variant="primary" label="登録"/>
-        {/* <button className="cancel-btn">キャンセル</button> */}
-        {/* <button className="add-btn">登録</button> */}
       </div>
       {/* <!-- 編集 --> */}
       <div className="edit-question-area">
         <h3 className="edit-question-area-title">登録した単語は<br/>以下から編集できます</h3>
           <div id="editArea-wordList" className="editArea-wordList">
-            <CategoryAccordion />
+            <CategoryAccordion allWords={wordRecords} />
           </div>
       </div>
       <button className="return-menu-btn">メニューへ戻る</button>
