@@ -57,6 +57,7 @@ common
 html {
   font-size: 62.5%;
   color: rgb(46, 44, 44);
+  background-color: var(--baseColor);
 }
 
 body {
@@ -64,6 +65,7 @@ body {
   height: 100dvh;
   display: flex;
   flex-direction: column;
+  background-color: var(--baseColor);
 }
 
 header {
@@ -104,11 +106,27 @@ h1 {
 
 main {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   /* display: flex; */
   /* overflow-y: auto; */
   /* flex-direction: column; */
   position: relative;
   padding: 60px var(--space-l);
   box-sizing: border-box;
+}
+
+/* .wrapper {
+  min-height: 100%;
+} */
+
+/* ダークモード（夜） */
+/* 背景色・文字色 */
+.dark-theme {
+  background-color: var(--darkModeBaseColor); /* 濃いグレー */
+  color: var(--darkModeFontColor);            /* 柔らかい白 */
+}
+
+/* darkMode */
+.dark-theme header h1 {
+  color: var(--darkModeFontColor);
 }

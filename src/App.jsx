@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Header from "./components/Header";
 // import Dashboard from "./components/Dashboard";
 // import CategorySelect from "./components/CategorySelect";
@@ -8,16 +9,19 @@ import Header from "./components/Header";
 import WordManager from "./components/WordManager";
 
 export default function App(){
+  const [isDark, setIsDark] = useState(false);
+  const handleToggleTheme = () => setIsDark(!isDark);
+
   return (
-    <div>
-      <Header />
+    <div className={`wrapper ${isDark ? "dark-theme" : "light-theme"}`}>
+      <Header onToggleTheme={ handleToggleTheme } className={isDark ? "dark-theme" : "light-theme"}/>
       <main>
         {/* <Dashboard /> */}
         {/* <CategorySelect /> */}
         {/* <QuestionScreen /> */}
         {/* <AnswerScreen wordArray={ wordRecords } /> */}
         {/* <AllAnsweredView /> */}
-        <WordManager />
+        <WordManager className={isDark ? "dark-theme" : "light-theme"}/>
       </main>
     </div>
   )

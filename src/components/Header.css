@@ -5,6 +5,7 @@ header {
   position: relative;
   position: fixed;
   z-index: 10;
+  background-color: var(--baseColor);
 }
 
 .theme-toggle {

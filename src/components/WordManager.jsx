@@ -3,10 +3,10 @@ import Button from "./Button";
 import CategoryAccordion from "./CategoryAccordion";
 import { wordRecords } from "./wordRecords";
 
-export default function WordManager(){
+export default function WordManager({className}){
 
   return(
-    <div id="add-question-view" className="add-question-area">
+    <div id="add-question-view" className={`add-question-area ${className}`}>
       {/* <!-- 追加 --> */}
       <div className="add-category-area">
         <p className="word-category">カテゴリーを登録してね</p>
