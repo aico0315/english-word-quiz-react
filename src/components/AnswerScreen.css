@@ -4,7 +4,7 @@
   display: grid;
   place-items: center;
   grid-template-rows: auto 8% auto auto auto auto 3%;
-  gap: var(--space-s);
+  gap: var(--space-l);
 }
 
 .result-message-area {
@@ -113,4 +113,35 @@
   text-align: center;
   padding: var(--space-m);
   border-radius: 0 0 8px 8px;
+}
+
+/* ==ダークモード（夜）== */
+
+/* 背景色・文字色 */
+.dark-theme .correct-answer-area,
+.dark-theme .user-answer-area {
+  background-color: var(--darkModeBaseColor); /* 濃いグレー */
+  color: var(--darkModeFontColor);            /* 柔らかい白 */
+}
+
+.dark-theme .correct-answer-area p {
+  color: var(--darkModeFontColor);            /* 柔らかい白 */
+}
+
+/* 枠線色・影 */
+.dark-theme .correct-answer-area,
+.dark-theme .user-answer-area {
+  border: var(--darkModeBorderStyle);
+  box-shadow: var(--darkModeItemShadow);
+}
+
+/* ボタンの文字・背景色 */
+.dark-theme .next-question-btn {
+  color: var(--darkModeFontColor);
+  background-color: var(--darkModeBtnColor);
+}
+
+/* 文字色 */
+.dark-theme .return-menu-btn {
+  color: var(--darkModeFontColor);
 }

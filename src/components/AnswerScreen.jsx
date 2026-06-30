@@ -5,12 +5,12 @@ import "/src/components/AnswerScreen.css";
 import Button from "./Button";
 import { wordRecords } from "./wordRecords";
 
-export default function AnswerScreen ({ wordArray }){
+export default function AnswerScreen ({ wordArray, className }){
   const DummyCurrentIndex = 1;
   const DummyWords = wordArray.length;
 
   return(
-    <div id="answer-view" className="answer-area hidden">
+    <div id="answer-view" className={`answer-area hidden ${ className }`}>
       <CounterDisplay currentNum={DummyCurrentIndex} totalLength={DummyWords} />
       <ResultMessageDisplay result={true} />
       <SetQuestion pareClassName="correct-answer-area" className="correct-answerArea-question" wordArray={wordRecords} answer={wordArray} />
@@ -22,7 +22,7 @@ export default function AnswerScreen ({ wordArray }){
         <p className="user-answer"></p>
       </div>
       <Button label="次の問題" variant="primary"/>
-      <Button label="メニューへ戻る" variant="subtle"/>
+      <Button className="return-menu-btn" label="メニューへ戻る" variant="subtle"/>
       {/* <button className="next-question-btn">次の問題</button>
       <button className="return-menu-btn">メニューへ戻る</button> */}
     </div>
