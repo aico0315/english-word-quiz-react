@@ -172,9 +172,10 @@ summary {
   justify-self: center;
   align-self: center;
 }
-.edit-btn-img,
+
 .delete-btn-img {
   width: 16px;
+
 }
 
 .add-category-area,
@@ -186,7 +187,9 @@ summary {
   min-width: 0;
 }
 
-/* darkMode */
+/* ==darkMode== */
+
+/* 背景色・文字色 */
 .dark-theme input,
 .dark-theme textarea,
 .dark-theme .add-area,
@@ -200,6 +203,7 @@ summary {
   color: var(--darkModeFontColor);            /* 柔らかい白 */
 }
 
+/* 枠線色・影 */
 .dark-theme input,
 .dark-theme textarea,
 .dark-theme .word-list{
@@ -207,10 +211,16 @@ summary {
   box-shadow: var(--darkModeItemShadow);
 }
 
+/* ボタンの文字・背景色 */
 .dark-theme .add-btn,
 .dark-theme .cancel-btn,
 .dark-theme .retry-btn,
 .dark-theme .word-footer {
   color: var(--darkModeFontColor);
   background-color: var(--darkModeBtnColor);
+}
+
+/* 文字色 */
+.dark-theme .return-menu-btn {
+  color: var(--darkModeFontColor);
 }
