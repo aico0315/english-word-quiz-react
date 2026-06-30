@@ -20,7 +20,7 @@ header {
   transition: back-ground 0.3s;
 }
 
-.theme-toggle.darkMode {
+.theme-toggle.dark-theme {
   background: #291d1295;
   outline: 1.5px solid #6f5f4e;
 }
@@ -37,7 +37,20 @@ header {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
 }
 
-.darkMode .knob {
+
+.knob {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: white;
+  top: 3px;
+  left: 25px;          /* ライトモード：右側 */
+  transition: left 0.25s ease;  /* ← ここがスライドアニメーション */
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.dark-theme .knob {
   top: 3px;
   left: 3px;  /* ダークモード時は左側に移動 */
 }
