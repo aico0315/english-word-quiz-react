@@ -19,6 +19,7 @@
 .clear-text {
   font-size: 2.4rem;
   font-family: var(--japanese);
+  color: var(--questionColor);
   line-height: 1.4;
   text-align: center;
 }
@@ -29,4 +30,24 @@
 
 .clear-img-area svg {
   width: 100%;
+}
+
+/* ==ダークモード（夜）== */
+
+.dark-theme .clear-area,
+.dark-theme .clear-area p {
+  background-color: var(--darkModeBaseColor); /* 濃いグレー */
+  color: var(--darkModeFontColor);            /* 柔らかい白 */
+}
+
+/* ボタンの文字・背景色 */
+.dark-theme .retry-btn {
+  color: var(--darkModeFontColor);
+  background-color: var(--darkModeBtnColor);
+}
+
+/* 文字色 */
+.dark-theme .return-menu-btn,
+.dark-theme .wrong-word-btn {
+  color: var(--darkModeFontColor);
 }

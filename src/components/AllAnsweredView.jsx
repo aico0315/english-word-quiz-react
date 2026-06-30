@@ -1,9 +1,9 @@
 import "/src/components/AllAnsweredView.css";
 import Button from "./Button";
 
-export default function AllAnsweredView(){
+export default function AllAnsweredView({ className }){
   return(
-    <div id="clear-view" className="clear-area hidden">
+    <div id="clear-view" className={`clear-area hidden ${ className }`}>
       <p className="clear-message">全問回答</p>
       <p className="clear-text">全問回答しました<br/>もう一度挑戦しますか？</p>
       <Button className="retry-btn" label="挑戦する" variant="primary" />
