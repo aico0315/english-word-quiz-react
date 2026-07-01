@@ -2,7 +2,6 @@
   font-size: 2.4rem;
   font-family: var(--japanese);
   margin: 0 auto;
-  /* padding: var(--space-s); */
   color: var(--btnTextColor);
   background-color: var(--btnColor);
   text-align: center;

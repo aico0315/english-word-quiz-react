@@ -72,7 +72,7 @@
   border-radius: var(--radius);
 }
 
-.judgement-answer-btn,
+/* .judgement-answer-btn,
 .next-question-btn,
 .retry-btn {
   font-size: 2.4rem;
@@ -86,7 +86,7 @@
   height: 44px;
   box-shadow: var(--itemShadow);
   border-radius: var(--radius);
-}
+} */
 
 .text-black {
   color: black;
