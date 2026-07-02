@@ -24,3 +24,10 @@
   width: 95%;
   justify-self: center;
 }
+
+/* ==ダークモード（夜）== */
+
+/* テキストベースのボタン文字色 */
+.dark-theme .menu-item {
+  color: var(--darkModeFontColor);
+}
