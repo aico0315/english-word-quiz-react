@@ -72,22 +72,28 @@
   border-radius: var(--radius);
 }
 
-/* .judgement-answer-btn,
-.next-question-btn,
-.retry-btn {
-  font-size: 2.4rem;
-  font-family: var(--japanese);
-  margin: 0 auto;
-  padding: var(--space-s);
-  color: var(--btnTextColor);
-  background-color: var(--btnColor);
-  text-align: center;
-  width: 160px;
-  height: 44px;
-  box-shadow: var(--itemShadow);
-  border-radius: var(--radius);
-} */
-
 .text-black {
   color: black;
+}
+
+/* ==ダークモード（夜）== */
+
+/* 背景色・文字色 */
+.dark-theme input,
+.dark-theme .set-question {
+  background-color: var(--darkModeBaseColor); /* 濃いグレー */
+  color: var(--darkModeFontColor);            /* 柔らかい白 */
+}
+
+/* 枠線色・影 */
+.dark-theme input,
+.dark-theme .set-question {
+  border: var(--darkModeBorderStyle);
+  box-shadow: var(--darkModeItemShadow);
+}
+
+/* ボタンの文字・背景色 */
+.dark-theme .judgement-answer-btn {
+  color: var(--darkModeFontColor);
+  background-color: var(--darkModeBtnColor);
 }

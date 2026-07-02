@@ -48,3 +48,22 @@
   gap: 30px;
 }
 
+/* ==ダークモード（夜）== */
+
+/* 背景色・文字色 */
+.dark-theme .menu-list,
+.dark-theme .category-btns {
+  background-color: var(--darkModeBaseColor); /* 濃いグレー */
+  color: var(--darkModeFontColor);            /* 柔らかい白 */
+}
+
+/* 枠線色・影 */
+.dark-theme .menu-list {
+  border: var(--darkModeBorderStyle);
+  box-shadow: var(--darkModeItemShadow);
+}
+
+/* subtleBtn文字色 */
+.dark-theme .close-btn {
+  color: var(--darkModeFontColor);
+}

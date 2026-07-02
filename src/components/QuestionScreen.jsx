@@ -8,13 +8,13 @@ import "/src/components/wordRecords.js";
 import { wordRecords } from "./wordRecords";
 import SetQuestion from "./SetQuestion";
 
-export default function QuestionScreen(){
+export default function QuestionScreen({ className }){
   const DummyCurrentIndex = 1;
   const DummyWords = wordRecords.length;
   const Questions = wordRecords;
 
   return (
-    <div id="question-view" className="question-area hidden">
+    <div id="question-view" className={`question-area hidden ${className}`}>
       <div className="counter-and-img-area">
         <img className="questionArea-img-left" src={ worryBoyBlue } alt="悩んでいる少年" />
         <CounterDisplay currentNum={DummyCurrentIndex} totalLength={DummyWords}/>

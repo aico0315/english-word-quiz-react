@@ -2,10 +2,10 @@ import { useState } from "react";
 import Header from "./components/Header";
 import "/src/App.css";
 // import Dashboard from "./components/Dashboard";
-// import CategorySelect from "./components/CategorySelect";
+import CategorySelect from "./components/CategorySelect";
 import { wordRecords } from "./components/wordRecords";
 // import QuestionScreen from "./components/QuestionScreen";
-import AnswerScreen from "./components/AnswerScreen";
+// import AnswerScreen from "./components/AnswerScreen";
 // import AllAnsweredView from "./components/AllAnsweredView";
 // import WordManager from "./components/WordManager";
 
@@ -18,9 +18,9 @@ export default function App(){
       <Header onToggleTheme={ handleToggleTheme } className={isDark ? "dark-theme" : "light-theme"}/>
       <main>
         {/* <Dashboard /> */}
-        {/* <CategorySelect /> */}
-        {/* <QuestionScreen /> */}
-        <AnswerScreen className={isDark ? "dark-theme" : "light-theme"} wordArray={ wordRecords } />
+        <CategorySelect className={isDark ? "dark-theme" : "light-theme"}/>
+        {/* <QuestionScreen className={isDark ? "dark-theme" : "light-theme"}/> */}
+        {/* <AnswerScreen className={isDark ? "dark-theme" : "light-theme"} wordArray={ wordRecords } /> */}
         {/* <AllAnsweredView className={isDark ? "dark-theme" : "light-theme"}/> */}
         {/* <WordManager className={isDark ? "dark-theme" : "light-theme"}/> */}
       </main>
