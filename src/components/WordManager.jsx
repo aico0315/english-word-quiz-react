@@ -3,7 +3,7 @@ import Button from "./Button";
 import CategoryAccordion from "./CategoryAccordion";
 import { wordRecords } from "./wordRecords";
 
-export default function WordManager({className}){
+export default function WordManager({ className, onReturn }){
 
   return(
     <div id="add-question-view" className={`add-question-area ${className}`}>
@@ -36,7 +36,7 @@ export default function WordManager({className}){
             <CategoryAccordion allWords={wordRecords} />
           </div>
       </div>
-      <button className="return-menu-btn">メニューへ戻る</button>
+      <Button className="return-menu-btn" label="メニューへ戻る" onPhaseChange={onReturn} />
     </div>
   )
 }

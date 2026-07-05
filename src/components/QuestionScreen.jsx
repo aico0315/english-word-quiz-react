@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "/src/components/QuestionScreen.css";
 import Button from "./Button";
 import "./CounterDisplay";
@@ -8,7 +9,7 @@ import "/src/components/wordRecords.js";
 import { wordRecords } from "./wordRecords";
 import SetQuestion from "./SetQuestion";
 
-export default function QuestionScreen({ className }){
+export default function QuestionScreen({ className, onReturn, onDisplay }){
   const DummyCurrentIndex = 1;
   const DummyWords = wordRecords.length;
   const Questions = wordRecords;
@@ -25,8 +26,8 @@ export default function QuestionScreen({ className }){
       <form id="answer-form">
         <input className="input-answer" name="user-input" type="text" /*enterkeyhint="done"*/ placeholder="回答を入力"/>
       </form>
-      <Button className="judgement-answer-btn" variant="primary" label="答え" />
-      <Button className="return-menu-btn" variant="subtle" label="メニューに戻る" />
+      <Button className="judgement-answer-btn" variant="primary" label="答え" onPhaseChange={onDisplay}/>
+      <Button className="return-menu-btn" variant="subtle" label="メニューに戻る" onPhaseChange={onReturn} />
     </div>
   )
 }

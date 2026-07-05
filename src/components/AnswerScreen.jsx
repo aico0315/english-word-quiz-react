@@ -5,7 +5,7 @@ import "/src/components/AnswerScreen.css";
 import Button from "./Button";
 import { wordRecords } from "./wordRecords";
 
-export default function AnswerScreen ({ wordArray, className }){
+export default function AnswerScreen ({ wordArray, className, onReturn }){
   const DummyCurrentIndex = 1;
   const DummyWords = wordArray.length;
 
@@ -22,7 +22,7 @@ export default function AnswerScreen ({ wordArray, className }){
         <p className="user-answer"></p>
       </div>
       <Button className="next-question-btn" label="次の問題" variant="primary"/>
-      <Button className="return-menu-btn" label="メニューへ戻る" variant="subtle"/>
+      <Button className="return-menu-btn" label="メニューへ戻る" variant="subtle" onPhaseChange={onReturn} />
       {/* <button className="next-question-btn">次の問題</button>
       <button className="return-menu-btn">メニューへ戻る</button> */}
     </div>
