@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { use, useState } from "react";
 import Header from "./components/Header";
 import "/src/App.css";
 import Dashboard from "./components/Dashboard";
@@ -36,16 +36,21 @@ export default function App(){
   const handleClickReturnBtn = () => setCurrentScreen("dashboard");
 
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [userInput, setUserInput] = useState("");
+  const [isCorrect, setIsCorrect] = useState(null);
+
+
   return (
     <div className={`wrapper ${isDark ? "dark-theme" : "light-theme"}`}>
       <Header onToggleTheme={ handleToggleTheme } className={isDark ? "dark-theme" : "light-theme"} onReturn={handleClickReturnBtn}/>
       <main>
-        {currentScreen === "dashboard" && <Dashboard className={isDark ? "dark-theme" : "light-theme"} onOpen={handleModalOpen} onDisplay={handleWordManagerDisplay} />}
-        {isModalOpen && <CategorySelect className={isDark ? "dark-theme" : "light-theme"} onUpdate={handleClick} onClose={handleModalClose} onScreenLifecycle={handleQuestionScreenDisplay}/>}
-        {currentScreen === "questionScreen" && <QuestionScreen className={isDark ? "dark-theme" : "light-theme"} onReturn={handleClickReturnBtn} onDisplay={handleAnswerScreeDisplay}/>}
-        {currentScreen === "answerScreen" && <AnswerScreen className={isDark ? "dark-theme" : "light-theme"} wordArray={ wordRecords } onReturn={handleClickReturnBtn}/>}
+        {currentScreen === "dashboard" && <Dashboard className={isDark ? "dark-theme" : "light-theme"} onOpen={ handleModalOpen } onDisplay={ handleWordManagerDisplay } />}
+        {isModalOpen && <CategorySelect className={isDark ? "dark-theme" : "light-theme"} onUpdate={ handleClick } onClose={ handleModalClose } onScreenLifecycle={ handleQuestionScreenDisplay }/>}
+        {currentScreen === "questionScreen" && <QuestionScreen className={isDark ? "dark-theme" : "light-theme"} onReturn={ handleClickReturnBtn } onDisplay={ handleAnswerScreeDisplay } onCurrentWord={ wordRecords[currentIndex] } onCurrentIndex={ currentIndex }/>}
+        {currentScreen === "answerScreen" && <AnswerScreen className={isDark ? "dark-theme" : "light-theme"} wordArray={ wordRecords } onReturn={ handleClickReturnBtn }/>}
         {currentScreen === "allAnsweredView" && <AllAnsweredView className={isDark ? "dark-theme" : "light-theme"}/>}
-        {currentScreen === "wordManager" && <WordManager className={isDark ? "dark-theme" : "light-theme"} onReturn={handleClickReturnBtn}/>}
+        {currentScreen === "wordManager" && <WordManager className={isDark ? "dark-theme" : "light-theme"} onReturn= {handleClickReturnBtn }/>}
       </main>
     </div>
   )

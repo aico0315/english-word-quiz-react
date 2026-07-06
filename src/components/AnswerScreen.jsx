@@ -14,17 +14,12 @@ export default function AnswerScreen ({ wordArray, className, onReturn }){
       <CounterDisplay currentNum={DummyCurrentIndex} totalLength={DummyWords} />
       <ResultMessageDisplay result={true} />
       <SetQuestion pareClassName="correct-answer-area" className="correct-answerArea-question" wordArray={wordRecords} answer={wordArray} />
-        {/* <p className="correct-answer"></p> */}
-        {/* <p className="supplement-message"></p> */}
-      {/* </div> */}
       <div className="user-answer-area">
         <p className="user-answer-title">あなたのこたえ</p>
         <p className="user-answer"></p>
       </div>
       <Button className="next-question-btn" label="次の問題" variant="primary"/>
       <Button className="return-menu-btn" label="メニューへ戻る" variant="subtle" onPhaseChange={onReturn} />
-      {/* <button className="next-question-btn">次の問題</button>
-      <button className="return-menu-btn">メニューへ戻る</button> */}
     </div>
   )
 }
