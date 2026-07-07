@@ -8,7 +8,7 @@ import "/src/components/wordRecords.js";
 import { wordRecords } from "./wordRecords";
 import SetQuestion from "./SetQuestion";
 
-export default function QuestionScreen({ className, onReturn, onDisplay, onCurrentWord, onCurrentIndex }){
+export default function QuestionScreen({ className, onReturn, onDisplay, onCurrentWord, onCurrentIndex, value, setUserInput }){
   const currentIndex = onCurrentIndex + 1;
   const wordsCount = wordRecords.length;
 
@@ -19,9 +19,12 @@ export default function QuestionScreen({ className, onReturn, onDisplay, onCurre
         <CounterDisplay currentNum={ currentIndex } totalLength={ wordsCount }/>
         <img className="questionArea-img-right" src={ worryGirlWaterBlue } alt="悩んでいる少女" />
       </div>
-      <SetQuestion pareClassName="set-quesArea" className="set-question" wordArray={onCurrentWord} />
+      <SetQuestion pareClassName="set-quesArea" className="set-question" wordArray={ onCurrentWord } />
       <form id="answer-form">
-        <input className="input-answer" name="user-input" type="text" /*enterkeyhint="done"*/ placeholder="回答を入力"/>
+        <input className="input-answer" name="user-input" type="text" /*enterkeyhint="done"*/ placeholder="回答を入力" value={value} onChange={(e) => {
+          setUserInput(e.target.value);
+          console.log(e.target.value);
+        }} />
       </form>
       <Button className="judgement-answer-btn" variant="primary" label="答え" onPhaseChange={onDisplay}/>
       <Button className="return-menu-btn" variant="subtle" label="メニューに戻る" onPhaseChange={onReturn} />

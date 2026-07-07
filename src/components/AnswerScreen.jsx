@@ -5,20 +5,20 @@ import "/src/components/AnswerScreen.css";
 import Button from "./Button";
 import { wordRecords } from "./wordRecords";
 
-export default function AnswerScreen ({ wordArray, className, onReturn }){
-  const DummyCurrentIndex = 1;
-  const DummyWords = wordArray.length;
+export default function AnswerScreen ({ wordArray, className, onCurrentIndex, onCurrentWord, onDisplay, onReturn }){
+  const wordsCount = wordArray.length;
+  const currentIndex = onCurrentIndex + 1;
 
   return(
     <div id="answer-view" className={`answer-area hidden ${ className }`}>
-      <CounterDisplay currentNum={DummyCurrentIndex} totalLength={DummyWords} />
+      <CounterDisplay currentNum={ currentIndex } totalLength={ wordsCount } />
       <ResultMessageDisplay result={true} />
-      <SetQuestion pareClassName="correct-answer-area" className="correct-answerArea-question" wordArray={wordRecords} answer={wordArray} />
+      <SetQuestion pareClassName="correct-answer-area" className="correct-answerArea-question" wordArray={ onCurrentWord } answer={ wordArray } />
       <div className="user-answer-area">
         <p className="user-answer-title">あなたのこたえ</p>
         <p className="user-answer"></p>
       </div>
-      <Button className="next-question-btn" label="次の問題" variant="primary"/>
+      <Button className="next-question-btn" label="次の問題" variant="primary" onPhaseChange={ onDisplay }/>
       <Button className="return-menu-btn" label="メニューへ戻る" variant="subtle" onPhaseChange={onReturn} />
     </div>
   )
