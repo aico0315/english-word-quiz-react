@@ -1,4 +1,4 @@
-export default function ResultMessageDisplay({result}){
+export default function ResultMessageDisplay({ result }){
 
   return(
     <>

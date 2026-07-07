@@ -8,6 +8,7 @@ import QuestionScreen from "./components/QuestionScreen";
 import AnswerScreen from "./components/AnswerScreen";
 import AllAnsweredView from "./components/AllAnsweredView";
 import WordManager from "./components/WordManager";
+import correctnessCheck from "./utils/correctnessCheck";
 
 export default function App(){
   const [ isDark, setIsDark ] = useState(false);
@@ -33,10 +34,12 @@ export default function App(){
   const handleQuestionScreenReturn = () => {
     setCurrentScreen("questionScreen");
     setCurrentIndex(currentIndex + 1);
+    setUserInput("");
   }
 
-  const handleAnswerScreeDisplay = () => {
+  const handleAnswerScreenDisplay = () => {
     setCurrentScreen("answerScreen");
+    setIsCorrect(correctnessCheck(userInput, wordRecords[currentIndex].answer));
   }
 
   const handleClickReturnBtn = () => setCurrentScreen("dashboard");
@@ -52,8 +55,8 @@ export default function App(){
       <main>
         {currentScreen === "dashboard" && <Dashboard className={isDark ? "dark-theme" : "light-theme"} onOpen={ handleModalOpen } onDisplay={ handleWordManagerDisplay } />}
         {isModalOpen && <CategorySelect className={isDark ? "dark-theme" : "light-theme"} onUpdate={ handleClick } onClose={ handleModalClose } onScreenLifecycle={ handleQuestionScreenDisplay }/>}
-        {currentScreen === "questionScreen" && <QuestionScreen className={isDark ? "dark-theme" : "light-theme"} onReturn={ handleClickReturnBtn } onDisplay={ handleAnswerScreeDisplay } onCurrentWord={ wordRecords[currentIndex] } onCurrentIndex={ currentIndex } value={userInput} setUserInput={ setUserInput }/>}
-        {currentScreen === "answerScreen" && <AnswerScreen className={isDark ? "dark-theme" : "light-theme"} wordArray={ wordRecords } onReturn={ handleClickReturnBtn } onCurrentIndex={ currentIndex } onCurrentWord={ wordRecords[currentIndex] } onDisplay={  handleQuestionScreenReturn }/>}
+        {currentScreen === "questionScreen" && <QuestionScreen className={isDark ? "dark-theme" : "light-theme"} onReturn={ handleClickReturnBtn } onDisplay={ handleAnswerScreenDisplay } onCurrentWord={ wordRecords[currentIndex] } onCurrentIndex={ currentIndex } value={userInput} setUserInput={ setUserInput }/>}
+        {currentScreen === "answerScreen" && <AnswerScreen className={isDark ? "dark-theme" : "light-theme"} wordArray={ wordRecords } onReturn={ handleClickReturnBtn } onCurrentIndex={ currentIndex } onCurrentWord={ wordRecords[currentIndex] } onDisplay={  handleQuestionScreenReturn } userInput={ userInput } setIsCorrect={ setIsCorrect } isCorrect={ isCorrect }/>}
         {currentScreen === "allAnsweredView" && <AllAnsweredView className={isDark ? "dark-theme" : "light-theme"}/>}
         {currentScreen === "wordManager" && <WordManager className={isDark ? "dark-theme" : "light-theme"} onReturn= { handleClickReturnBtn }/>}
       </main>

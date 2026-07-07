@@ -23,7 +23,6 @@ export default function QuestionScreen({ className, onReturn, onDisplay, onCurre
       <form id="answer-form">
         <input className="input-answer" name="user-input" type="text" /*enterkeyhint="done"*/ placeholder="回答を入力" value={value} onChange={(e) => {
           setUserInput(e.target.value);
-          console.log(e.target.value);
         }} />
       </form>
       <Button className="judgement-answer-btn" variant="primary" label="答え" onPhaseChange={onDisplay}/>
