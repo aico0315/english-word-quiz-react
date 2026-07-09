@@ -9,15 +9,22 @@ import AnswerScreen from "./components/AnswerScreen";
 import AllAnsweredView from "./components/AllAnsweredView";
 import WordManager from "./components/WordManager";
 import correctnessCheck from "./utils/correctnessCheck";
+// import getSortedCategories from "./utils/getSortedCategories";
+import getWordsByCategory from "./utils/GetWordsByCategory";
+import shuffleQuestions from "./utils/shuffleQuestions";
 
 export default function App(){
   const [ isDark, setIsDark ] = useState(false);
   const handleToggleTheme = () => setIsDark(!isDark);
 
+  const [ categoryWords, setCategoryWords ] = useState(null);
+
   const [ selectedCategory, setSelectedCategory ] = useState(null); //初期値は「未設定」
   const handleClick = (label) => {
     setSelectedCategory(label);
-    console.log(label);
+    const result = shuffleQuestions(getWordsByCategory(wordRecords, label));
+    console.log(result);
+    setCategoryWords(result);
   }
 
   const [ isModalOpen, setIsModalOpen ] = useState(false); //最初は消えている
@@ -54,8 +61,8 @@ export default function App(){
       <Header onToggleTheme={ handleToggleTheme } className={isDark ? "dark-theme" : "light-theme"} onReturn={handleClickReturnBtn}/>
       <main>
         {currentScreen === "dashboard" && <Dashboard className={isDark ? "dark-theme" : "light-theme"} onOpen={ handleModalOpen } onDisplay={ handleWordManagerDisplay } />}
-        {isModalOpen && <CategorySelect className={isDark ? "dark-theme" : "light-theme"} onUpdate={ handleClick } onClose={ handleModalClose } onScreenLifecycle={ handleQuestionScreenDisplay }/>}
-        {currentScreen === "questionScreen" && <QuestionScreen className={isDark ? "dark-theme" : "light-theme"} onReturn={ handleClickReturnBtn } onDisplay={ handleAnswerScreenDisplay } onCurrentWord={ wordRecords[currentIndex] } onCurrentIndex={ currentIndex } value={userInput} setUserInput={ setUserInput }/>}
+        {isModalOpen && <CategorySelect className={isDark ? "dark-theme" : "light-theme"} wordArray={ wordRecords } onUpdate={ handleClick } onClose={ handleModalClose } onScreenLifecycle={ handleQuestionScreenDisplay }/>}
+        {categoryWords && currentScreen === "questionScreen" && <QuestionScreen className={isDark ? "dark-theme" : "light-theme"} onReturn={ handleClickReturnBtn } onDisplay={ handleAnswerScreenDisplay } onCurrentWord={ categoryWords[currentIndex] } onCurrentIndex={ currentIndex } value={userInput} setUserInput={ setUserInput }/>}
         {currentScreen === "answerScreen" && <AnswerScreen className={isDark ? "dark-theme" : "light-theme"} wordArray={ wordRecords } onReturn={ handleClickReturnBtn } onCurrentIndex={ currentIndex } onCurrentWord={ wordRecords[currentIndex] } onDisplay={  handleQuestionScreenReturn } userInput={ userInput } setIsCorrect={ setIsCorrect } isCorrect={ isCorrect }/>}
         {currentScreen === "allAnsweredView" && <AllAnsweredView className={isDark ? "dark-theme" : "light-theme"}/>}
         {currentScreen === "wordManager" && <WordManager className={isDark ? "dark-theme" : "light-theme"} onReturn= { handleClickReturnBtn }/>}

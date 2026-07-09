@@ -2,9 +2,11 @@ import Button from "./Button";
 import "/src/components/Button.css";
 import "./Dashboard.css";
 import "./CategorySelect.css";
+import getSortedCategories from "../utils/getSortedCategories";
 
-export default function CategorySelect ({ className, onUpdate, onClose, onDisplay, onScreenLifecycle }){
-  const categories = ["IT用語", "稜語録", "gitHub"]
+export default function CategorySelect ({ className, wordArray, onUpdate, onClose, onDisplay, onScreenLifecycle }){
+  const categories = getSortedCategories(wordArray);
+  console.log(onDisplay);
 
   return(
     <div className={`modal-overlay ${className}`}>
