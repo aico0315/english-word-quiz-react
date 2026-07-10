@@ -6,7 +6,6 @@ import getSortedCategories from "../utils/getSortedCategories";
 
 export default function CategorySelect ({ className, wordArray, onUpdate, onClose, onDisplay, onScreenLifecycle }){
   const categories = getSortedCategories(wordArray);
-  console.log(onDisplay);
 
   return(
     <div className={`modal-overlay ${className}`}>
