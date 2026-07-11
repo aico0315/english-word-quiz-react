@@ -62,6 +62,22 @@ export default function App(){
   const [userInput, setUserInput] = useState("");
   const [isCorrect, setIsCorrect] = useState(null);
 
+  const [ newWord, setNewWord ] = useState({
+    id: "",
+    category: "",
+    question: "",
+    answer: "",
+    supplement:"",
+  })
+  console.log(newWord);
+
+  const handleNewWordReset = () => setNewWord({
+    id: "",
+    category: "",
+    question: "",
+    answer: "",
+    supplement:"",
+  })
 
   return (
     <div className={`wrapper ${isDark ? "dark-theme" : "light-theme"}`}>
@@ -71,8 +87,8 @@ export default function App(){
         {isModalOpen && <CategorySelect className={isDark ? "dark-theme" : "light-theme"} wordArray={ wordRecords } onUpdate={ handleClick } onClose={ handleModalClose } onScreenLifecycle={ handleQuestionScreenDisplay }/>}
         {categoryWords && currentScreen === "questionScreen" && <QuestionScreen className={isDark ? "dark-theme" : "light-theme"} onReturn={ handleClickReturnBtn } onDisplay={ handleAnswerScreenDisplay } onCurrentWordArray={ categoryWords } onCurrentIndex={ currentIndex } value={userInput} setUserInput={ setUserInput } counterDis={ handleClick }/>}
         {currentScreen === "answerScreen" && <AnswerScreen className={isDark ? "dark-theme" : "light-theme"} wordArray={ categoryWords } onReturn={ handleClickReturnBtn } onCurrentIndex={ currentIndex } onCurrentWord={ categoryWords } onDisplay={  handleQuestionScreenReturn } userInput={ userInput } setIsCorrect={ setIsCorrect } isCorrect={ isCorrect }/>}
-        {currentScreen === "allAnsweredView" && <AllAnsweredView className={isDark ? "dark-theme" : "light-theme"}/>}
-        {currentScreen === "wordManager" && <WordManager className={isDark ? "dark-theme" : "light-theme"} onReturn= { handleClickReturnBtn }/>}
+        {currentScreen === "allAnsweredView" && <AllAnsweredView className={isDark ? "dark-theme" : "light-theme"} onReturn={ handleClickReturnBtn }/>}
+        {currentScreen === "wordManager" && <WordManager className={isDark ? "dark-theme" : "light-theme"} onReturn= { handleClickReturnBtn } newWord={ newWord } setNewWord={ setNewWord } wordReset={ handleNewWordReset }/>}
       </main>
     </div>
   )
