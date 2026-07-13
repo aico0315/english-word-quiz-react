@@ -69,7 +69,6 @@ export default function App(){
     answer: "",
     supplement:"",
   })
-  console.log(newWord);
 
   const handleNewWordReset = () => setNewWord({
     id: "",
@@ -78,6 +77,17 @@ export default function App(){
     answer: "",
     supplement:"",
   })
+
+  const [wordArray, setWordArray] = useState(wordRecords);
+
+  const handleClickRegistration = () => {
+    setWordArray(prev => {
+      const newArray = [...prev, newWord]
+      console.log(newArray)
+      return newArray;
+    });
+    handleNewWordReset();
+ }
 
   return (
     <div className={`wrapper ${isDark ? "dark-theme" : "light-theme"}`}>
@@ -88,7 +98,7 @@ export default function App(){
         {categoryWords && currentScreen === "questionScreen" && <QuestionScreen className={isDark ? "dark-theme" : "light-theme"} onReturn={ handleClickReturnBtn } onDisplay={ handleAnswerScreenDisplay } onCurrentWordArray={ categoryWords } onCurrentIndex={ currentIndex } value={userInput} setUserInput={ setUserInput } counterDis={ handleClick }/>}
         {currentScreen === "answerScreen" && <AnswerScreen className={isDark ? "dark-theme" : "light-theme"} wordArray={ categoryWords } onReturn={ handleClickReturnBtn } onCurrentIndex={ currentIndex } onCurrentWord={ categoryWords } onDisplay={  handleQuestionScreenReturn } userInput={ userInput } setIsCorrect={ setIsCorrect } isCorrect={ isCorrect }/>}
         {currentScreen === "allAnsweredView" && <AllAnsweredView className={isDark ? "dark-theme" : "light-theme"} onReturn={ handleClickReturnBtn }/>}
-        {currentScreen === "wordManager" && <WordManager className={isDark ? "dark-theme" : "light-theme"} onReturn= { handleClickReturnBtn } newWord={ newWord } setNewWord={ setNewWord } wordReset={ handleNewWordReset }/>}
+        {currentScreen === "wordManager" && <WordManager className={isDark ? "dark-theme" : "light-theme"} wordArray={ wordArray } onReturn= { handleClickReturnBtn } newWord={ newWord } setNewWord={ setNewWord } wordReset={ handleNewWordReset } handleClickRegistration={ handleClickRegistration }/>}
       </main>
     </div>
   )
