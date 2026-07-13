@@ -2,7 +2,7 @@ import getSortedCategories from "../utils/getSortedCategories"
 import getWordsByCategory from "../utils/GetWordsByCategory";
 import WordAccordion from "./WordAccordion";
 
-export default function CategoryAccordion({allWords}){
+export default function CategoryAccordion({ allWords }){
   const sortedCategories = getSortedCategories(allWords);
 
   return(

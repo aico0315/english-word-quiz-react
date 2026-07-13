@@ -81,13 +81,14 @@ export default function App(){
   const [wordArray, setWordArray] = useState(wordRecords);
 
   const handleClickRegistration = () => {
+    const newId = String(Date.now());
     setWordArray(prev => {
-      const newArray = [...prev, newWord]
+      const newArray = [...prev, {...newWord, answer : [newWord.answer], id: newId}]
       console.log(newArray)
       return newArray;
     });
     handleNewWordReset();
- }
+  }
 
   return (
     <div className={`wrapper ${isDark ? "dark-theme" : "light-theme"}`}>
