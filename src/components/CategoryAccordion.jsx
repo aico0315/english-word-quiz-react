@@ -2,7 +2,7 @@ import getSortedCategories from "../utils/getSortedCategories"
 import getWordsByCategory from "../utils/GetWordsByCategory";
 import WordAccordion from "./WordAccordion";
 
-export default function CategoryAccordion({ allWords, handleClickSetId }){
+export default function CategoryAccordion({ allWords, handleClickSetId, handleClickDelete }){
   const sortedCategories = getSortedCategories(allWords);
 
   return(
@@ -11,7 +11,7 @@ export default function CategoryAccordion({ allWords, handleClickSetId }){
       return(
         <details key={category}>
             <summary>{category}</summary>
-            <WordAccordion uniqueCategoryWord={words} handleClickSetId={ handleClickSetId } />
+            <WordAccordion uniqueCategoryWord={words} handleClickSetId={ handleClickSetId } handleClickDelete={ handleClickDelete } />
         </details>
       )
     })
