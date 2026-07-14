@@ -1,6 +1,6 @@
 import WordDetail from "./WordDetail"
 
-export default function WordAccordion({uniqueCategoryWord}){
+export default function WordAccordion({ uniqueCategoryWord, handleClickSetId }){
   return(
     uniqueCategoryWord.map((word, index) =>
       <details key={word.id}>
@@ -9,7 +9,7 @@ export default function WordAccordion({uniqueCategoryWord}){
           <span>/ {word.answer[0]}</span>
           <span>︙</span>
         </summary>
-        <WordDetail word={word}/>
+        <WordDetail word={ word } handleClickSetId={ handleClickSetId }/>
       </details>
     )
   )

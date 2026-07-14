@@ -144,14 +144,14 @@ export const wordRecords = [
     answer: ["量", "数", "りょう", "かず"],
   },
   {
-    id: `0000018`,
+    id: `0000019`,
     category: ``,
     question: `current`,
     supplement:`読み：ｶﾚﾝﾄ`,
     answer: ["現在", "げんざい"],
   },
   {
-    id: `0000019`,
+    id: `0000020`,
     category: ``,
     question: `correct`,
     supplement:`読み：ｺﾚｸﾄ
