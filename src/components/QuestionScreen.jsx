@@ -5,7 +5,7 @@ import CounterDisplay from "./CounterDisplay";
 import worryBoyBlue from "/src/assets/worryBoyBlue.svg"
 import worryGirlWaterBlue from "/src/assets/worryGirlWaterBlue.svg"
 import "/src/components/wordRecords.js";
-import { wordRecords } from "./wordRecords";
+// import { wordRecords } from "./wordRecords";
 import SetQuestion from "./SetQuestion";
 
 export default function QuestionScreen({ className, onReturn, onDisplay, onCurrentWordArray, onCurrentIndex, value, setUserInput }){

@@ -1,7 +1,7 @@
 import "/src/components/WordManager.css";
 import Button from "./Button";
 import CategoryAccordion from "./CategoryAccordion";
-import { wordRecords } from "./wordRecords";
+// import { wordRecords } from "./wordRecords";
 
 export default function WordManager({ className, wordArray, onReturn, newWord, setNewWord, wordReset, handleClickRegistration, handleClickSetId, selectedWordId, handleClickDelete }){
 

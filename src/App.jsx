@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useEffect } from "react";
 import Header from "./components/Header";
 import "/src/App.css";
 import Dashboard from "./components/Dashboard";
@@ -78,7 +79,10 @@ export default function App(){
     supplement:"",
   })
 
-  const [ wordArray, setWordArray ] = useState(wordRecords);
+  const [ wordArray, setWordArray ] = useState(localStorage.getItem("userWords") ? JSON.parse(localStorage.getItem("userWords")) : wordRecords);
+
+  const setLocalStorage = () => localStorage.setItem("userWords", JSON.stringify(wordArray));
+  useEffect(setLocalStorage, [wordArray]);
 
   const handleClickRegistration = () => {
     if(selectedWordId){
