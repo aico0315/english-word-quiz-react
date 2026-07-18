@@ -3,10 +3,10 @@ import Button from "./Button";
 import CategoryAccordion from "./CategoryAccordion";
 // import { wordRecords } from "./wordRecords";
 
-export default function WordManager({ className, wordArray, onReturn, newWord, setNewWord, wordReset, handleClickRegistration, handleClickSetId, selectedWordId, handleClickDelete }){
+export default function WordManager({ className, wordArray, onReturn, newWord, setNewWord, wordReset, handleClickRegistration, handleClickSetId, selectedWordId, handleClickDelete, formRef, wordRefs }){
 
   return(
-    <div id="add-question-view" className={`add-question-area ${className}`}>
+    <div id="add-question-view" ref={ formRef } className={`add-question-area ${className}`}>
       {/* <!-- 追加 --> */}
       <div className="add-category-area">
         <p className="word-category">カテゴリーを登録してね</p>
@@ -33,7 +33,7 @@ export default function WordManager({ className, wordArray, onReturn, newWord, s
       <div className="edit-question-area">
         <h3 className="edit-question-area-title">登録した単語は<br/>以下から編集できます</h3>
           <div id="editArea-wordList" className="editArea-wordList">
-            <CategoryAccordion allWords={ wordArray } handleClickSetId={ handleClickSetId } handleClickDelete={ handleClickDelete }/>
+            <CategoryAccordion allWords={ wordArray } handleClickSetId={ handleClickSetId } handleClickDelete={ handleClickDelete } wordRefs={ wordRefs }/>
           </div>
       </div>
       <Button className="return-menu-btn" label="メニューへ戻る" onPhaseChange={onReturn} />

@@ -9,6 +9,7 @@
   margin: 0 -24px;
   margin-top: var(--space-s);
   padding: 0 24px;
+  scroll-margin-top: 60px;
 }
 
 .add-question-area input,
