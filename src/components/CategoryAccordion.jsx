@@ -1,5 +1,5 @@
 import getSortedCategories from "../utils/getSortedCategories"
-import getWordsByCategory from "../utils/GetWordsByCategory";
+import getWordsByCategory from "../utils/getWordsByCategory";
 import WordAccordion from "./WordAccordion";
 
 export default function CategoryAccordion({ allWords, handleClickSetId, handleClickDelete, wordRefs }){
