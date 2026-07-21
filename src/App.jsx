@@ -73,7 +73,9 @@ export default function App(){
   })
 
   const handleNewWordReset = () => {
-    wordRefs.current[selectedWordId].scrollIntoView({behavior: "smooth"});
+    if(selectedWordId){
+      wordRefs.current[selectedWordId].scrollIntoView({behavior: "smooth"})
+    }
     setNewWord(
     {
     id: "",
@@ -82,7 +84,9 @@ export default function App(){
     answer: "",
     supplement:"",
     }
-  )}
+    )
+    setSelectedWordId("");
+  }
 
   const [ wordArray, setWordArray ] = useState(localStorage.getItem("userWords") ? JSON.parse(localStorage.getItem("userWords")) : wordRecords);
 
