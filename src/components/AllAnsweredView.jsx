@@ -1,5 +1,5 @@
 import "/src/components/AllAnsweredView.css";
-import happyBoysAndGirls from "/src/assets/happyBoysAndGirls.svg";
+import happyBoysAndGirls from "/src/assets/happyBoysAndGirls.png";
 import Button from "./Button";
 
 export default function AllAnsweredView({ className, onReturn }){
