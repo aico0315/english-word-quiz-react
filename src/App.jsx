@@ -24,7 +24,7 @@ export default function App(){
   const [ selectedCategory, setSelectedCategory ] = useState(null); //初期値は「未設定」
   const handleClick = (label) => {
     setSelectedCategory(label);
-    const result = shuffleQuestions(getWordsByCategory([...wordRecords], label));
+    const result = shuffleQuestions(getWordsByCategory([...wordArray], label));
     console.log(result);
     setCategoryWords(result);
     setUserInput("");
@@ -135,7 +135,7 @@ export default function App(){
       <Header onToggleTheme={ handleToggleTheme } className={isDark ? "dark-theme" : "light-theme"} onReturn={handleClickReturnBtn}/>
       <main>
         {currentScreen === "dashboard" && <Dashboard className={isDark ? "dark-theme" : "light-theme"} onOpen={ handleModalOpen } onDisplay={ handleWordManagerDisplay } />}
-        {isModalOpen && <CategorySelect className={isDark ? "dark-theme" : "light-theme"} wordArray={ wordRecords } onUpdate={ handleClick } onClose={ handleModalClose } onScreenLifecycle={ handleQuestionScreenDisplay }/>}
+        {isModalOpen && <CategorySelect className={isDark ? "dark-theme" : "light-theme"} wordArray={ wordArray } onUpdate={ handleClick } onClose={ handleModalClose } onScreenLifecycle={ handleQuestionScreenDisplay }/>}
         {categoryWords && currentScreen === "questionScreen" && <QuestionScreen className={isDark ? "dark-theme" : "light-theme"} onReturn={ handleClickReturnBtn } onDisplay={ handleAnswerScreenDisplay } onCurrentWordArray={ categoryWords } onCurrentIndex={ currentIndex } value={userInput} setUserInput={ setUserInput } counterDis={ handleClick }/>}
         {currentScreen === "answerScreen" && <AnswerScreen className={isDark ? "dark-theme" : "light-theme"} wordArray={ categoryWords } onReturn={ handleClickReturnBtn } onCurrentIndex={ currentIndex } onCurrentWord={ categoryWords } onDisplay={  handleQuestionScreenReturn } userInput={ userInput } setIsCorrect={ setIsCorrect } isCorrect={ isCorrect }/>}
         {currentScreen === "allAnsweredView" && <AllAnsweredView className={isDark ? "dark-theme" : "light-theme"} onReturn={ handleClickReturnBtn }/>}

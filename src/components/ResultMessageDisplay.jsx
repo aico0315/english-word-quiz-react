@@ -1,7 +1,7 @@
 import correctGirl from "/src/assets/correctGirl.svg";
 import correctBoy from "/src/assets/correctBoy@72x.webp";
 import notCorrectBoyGreen from "/src/assets/notCorrectBoyGreen.svg";
-import notCorrectGirl from "/src/assets/notCorrectGirl.svg";
+import notCorrectGirl from "/src/assets/notCorrectGirl.png";
 
 
 export default function ResultMessageDisplay({ result }){
