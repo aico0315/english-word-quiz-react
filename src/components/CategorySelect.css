@@ -7,24 +7,7 @@
   backdrop-filter: blur(5px);
 }
 
-.mode-select-area {
-  opacity: 0;
-  z-index: -100;
-  border-radius: var(--radius);
-  box-shadow: var(--itemShadow);
-  display: grid;
-  place-items: center;
-  width: 90%;
-  font-size: 2rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  opacity: 0;
-  transform: translate(-50%, -60%); /* 中央揃え＋少し上 */
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.mode-select-area.active {
+.category-list-scroll-area {
   z-index: 100;
   background-color: var(--baseColor);
   border-radius: var(--radius);
@@ -41,11 +24,20 @@
   left: 50%;
   opacity: 1;
   transform: translate(-50%, -50%); /* 中央揃えに戻す */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  overflow-y: scroll
 }
 
 .category-btns {
   display: grid;
   gap: 30px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 82%;
+  left: 50%;
+  transform: translate(-50%, 0%); /* 中央揃えに戻す */
 }
 
 /* ==ダークモード（夜）== */
