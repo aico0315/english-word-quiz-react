@@ -107,7 +107,7 @@
 }
 
 .user-answer {
-  color: rgba(50, 48, 48, 0.799);
+  /* color: rgba(50, 48, 48, 0.799); */
   font-size: 2rem;
   font-family: var(--japanese);
   text-align: center;
@@ -142,6 +142,7 @@
 }
 
 /* 文字色 */
-.dark-theme .return-menu-btn {
+.dark-theme .return-menu-btn
+.dark-theme .user-answer p {
   color: var(--darkModeFontColor);
 }
