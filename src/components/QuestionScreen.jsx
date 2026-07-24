@@ -15,11 +15,11 @@ export default function QuestionScreen({ className, onReturn, onDisplay, onCurre
   const wordsCount = onCurrentWordArray.length;
 
   return (
-    <div id="question-view" className={`question-area hidden ${ className }`}>
+    <div id="question-view" className={`question-area ${ className }`}>
       <div className="counter-and-img-area">
-        <img className="questionArea-img-left" src={ worryBoyBlue } alt="悩んでいる少年" />
+        <img className={`questionArea-img-left ${currentIndex % 2 === 0 ? "": "hidden"}`} src={ worryBoyBlue } alt="悩んでいる少年" />
         <CounterDisplay currentNum={ currentIndexDisplay } totalLength={ wordsCount }/>
-        <img className="questionArea-img-right" src={ worryGirlWaterBlue } alt="悩んでいる少女" />
+        <img className={`questionArea-img-right ${currentIndex % 2 !== 0 ? "": "hidden"}`} src={ worryGirlWaterBlue } alt="悩んでいる少女" />
       </div>
       <SetQuestion pareClassName="set-quesArea" className="set-question" wordArray={ onCurrentWordArray[currentIndex] } />
       <form id="answer-form" onSubmit={(e) => e.preventDefault()}>

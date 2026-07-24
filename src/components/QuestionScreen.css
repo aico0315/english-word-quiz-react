@@ -76,6 +76,10 @@
   color: black;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 /* ==ダークモード（夜）== */
 
 /* 背景色・文字色 */

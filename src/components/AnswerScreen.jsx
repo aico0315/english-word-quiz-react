@@ -13,7 +13,7 @@ export default function AnswerScreen ({ wordArray, className, onCurrentIndex, on
   
 
   return(
-    <div id="answer-view" className={`answer-area hidden ${ className }`}>
+    <div id="answer-view" className={`answer-area ${ className }`}>
       <CounterDisplay currentNum={ currentIndexDisplay } totalLength={ wordsCount } />
       <ResultMessageDisplay result={ isCorrect } />
       <SetQuestion pareClassName="correct-answer-area" className="correct-answerArea-question" wordArray={ onCurrentWord[currentIndex] } answer={ onCurrentWord[currentIndex] } />
