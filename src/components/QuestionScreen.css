@@ -3,12 +3,12 @@
   height: 100%;
   display: grid;
   place-items: center;
-  grid-template-rows: 15% 35% 20% 8% 5%;
-  gap: var(--space-m);
+  grid-template-rows: 23% 35% 20% 8% 5%;
+  gap: var(--space-l);
 }
 
 .counter-and-img-area {
-  margin-top: 50px;
+  padding-top: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   width: 100%;
@@ -18,7 +18,7 @@
 .questionArea-img-right {
   justify-self: center;
   width: 100px;
-  height: 100px;
+  height: 132px;
 }
 
 .questionArea-img-left svg,

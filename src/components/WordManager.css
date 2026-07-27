@@ -177,9 +177,12 @@ summary {
   align-self: center;
 }
 
+.return-menu-btn.in-page-flow {
+  position: static;
+}
+
 .delete-btn-img {
   width: 16px;
-
 }
 
 .add-category-area,

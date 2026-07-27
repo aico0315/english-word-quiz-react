@@ -36,7 +36,7 @@ export default function WordManager({ className, wordArray, onReturn, newWord, s
             <CategoryAccordion allWords={ wordArray } handleClickSetId={ handleClickSetId } handleClickDelete={ handleClickDelete } wordRefs={ wordRefs }/>
           </div>
       </div>
-      <Button className="return-menu-btn" label="メニューへ戻る" onPhaseChange={onReturn} />
+      <Button className="return-menu-btn in-page-flow" label="メニューへ戻る" onPhaseChange={onReturn} />
     </div>
   )
 }

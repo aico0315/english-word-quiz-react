@@ -24,7 +24,6 @@
   left: 50%;
   opacity: 1;
   transform: translate(-50%, -50%); /* 中央揃えに戻す */
-  transition: opacity 0.5s ease, transform 0.5s ease;
   overflow-y: scroll
 }
 

@@ -20,7 +20,6 @@
   font-size: 1.6rem;
   font-family: var(--japanese);
   font-weight: 500;
-  padding: 10px 0;
   color: var(--btnTextColor);
   z-index: 100;
 }

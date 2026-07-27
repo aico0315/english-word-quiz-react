@@ -1,6 +1,6 @@
 import correctGirl from "/src/assets/correctGirl.svg";
 import correctBoy from "/src/assets/correctBoy@72x.webp";
-import notCorrectBoyGreen from "/src/assets/notCorrectBoyGreen.svg";
+import notCorrectBoyGreen from "/src/assets/notCorrectBoyGreen.png";
 import notCorrectGirl from "/src/assets/notCorrectGirl.png";
 
 
