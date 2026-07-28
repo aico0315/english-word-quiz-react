@@ -101,7 +101,7 @@ export default function App(){
     }else{
       const newId = String(Date.now());
       setWordArray(prev => {
-        const newArray = [...prev, {...newWord, answer : [newWord.answer], id: newId}]
+        const newArray = [...prev, {...newWord, answer : newWord.answer.split(/[、,]/), id: newId}]
         console.log(newArray)
         return newArray;
       });
@@ -115,7 +115,7 @@ export default function App(){
   const handleClickSetId = (wordId) => {
     setSelectedWordId(wordId);
     const getSelectedWord = wordArray.find(word => word.id === wordId);
-    setNewWord(getSelectedWord);
+    setNewWord({...getSelectedWord, answer: getSelectedWord.answer.join("、")});
     formRef.current.scrollIntoView({ behavior: "smooth"});
   }
 
