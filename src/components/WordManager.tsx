@@ -2,8 +2,32 @@ import "/src/components/WordManager.css";
 import Button from "./Button";
 import CategoryAccordion from "./CategoryAccordion";
 import type { Word } from "../types"
+import React from "react";
 
-export default function WordManager({ className, wordArray, onReturn, newWord, setNewWord, wordReset, handleClickRegistration, handleClickSetId, selectedWordId, handleClickDelete, formRef, wordRefs }){
+interface WordFormData {
+  id: string;
+  category: string;
+  question: string;
+  answer: string;
+  supplement: string;
+}
+
+interface WordManagerProps {
+  className: string;
+  wordArray: Word[];
+  onReturn: ()=> void;
+  newWord: WordFormData;
+  setNewWord: React.Dispatch<React.SetStateAction<WordFormData>>;
+  wordReset: ()=> void;
+  handleClickRegistration: ()=> void;
+  handleClickSetId: (wordId: string)=> void;
+  selectedWordId: string;
+  handleClickDelete: (wordId: string)=> void;
+  formRef: React.RefObject<HTMLDivElement>;
+  wordRefs: React.RefObject<{ [key: string]: HTMLDivElement}>;
+}
+
+export default function WordManager({ className, wordArray, onReturn, newWord, setNewWord, wordReset, handleClickRegistration, handleClickSetId, selectedWordId, handleClickDelete, formRef, wordRefs }: WordManagerProps){
 
   return(
     <div id="add-question-view" ref={ formRef } className={`add-question-area ${className}`}>
