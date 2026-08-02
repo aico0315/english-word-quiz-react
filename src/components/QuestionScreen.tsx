@@ -5,10 +5,20 @@ import CounterDisplay from "./CounterDisplay";
 import worryBoyBlue from "/src/assets/worryBoyBlue.svg"
 import worryGirlWaterBlue from "/src/assets/worryGirlWaterBlue.svg"
 import "/src/components/wordRecords.js";
-// import { wordRecords } from "./wordRecords";
 import SetQuestion from "./SetQuestion";
+import type { Word } from "../types";
 
-export default function QuestionScreen({ className, onReturn, onDisplay, onCurrentWordArray, onCurrentIndex, value, setUserInput }){
+interface QuestionScreenProps {
+  className: string;
+  onReturn: ()=> void;
+  onDisplay: ()=> void;
+  onCurrentWordArray: Word[];
+  onCurrentIndex: number;
+  value: string;
+  setUserInput: React.Dispatch<React.SetStateAction< string >>;
+}
+
+export default function QuestionScreen({ className, onReturn, onDisplay, onCurrentWordArray, onCurrentIndex, value, setUserInput }: QuestionScreenProps){
   const currentIndex = onCurrentIndex;
   const currentIndexDisplay = onCurrentIndex + 1;
   console.log(onCurrentWordArray);
