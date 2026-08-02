@@ -26,7 +26,7 @@ export default function CategorySelect ({ className, wordArray, onUpdate, onClos
           <Button className="weak-words-btn category-btns" variant="text" label="苦手な単語"/>
         </div>
         {/* <Button className="question-continue-btn category-btns" variant="text" label="つづきから"/> */}
-        <Button className="close-btn" variant="subtle" label="× 閉じる" onClick={onUpdate} onPhaseChange={onClose}/>
+        <Button className="close-btn" variant="subtle" label="× 閉じる" onClick={ onUpdate } onPhaseChange={ onClose }/>
       </motion.div>
     </motion.div>
   )

@@ -37,8 +37,8 @@ export default function QuestionScreen({ className, onReturn, onDisplay, onCurre
           setUserInput(e.target.value);
         }} />
       </form>
-      <Button className="judgement-answer-btn" variant="primary" label="答え" onPhaseChange={onDisplay}/>
-      <Button className="return-menu-btn" variant="subtle" label="メニューに戻る" onPhaseChange={onReturn} />
+      <Button className="judgement-answer-btn" variant="primary" label="答え" onPhaseChange={ onDisplay }/>
+      <Button className="return-menu-btn" variant="subtle" label="メニューに戻る" onPhaseChange={ onReturn } />
     </div>
   )
 }
