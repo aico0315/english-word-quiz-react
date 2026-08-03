@@ -1,6 +1,5 @@
 import "/src/components/QuestionScreen.css";
 import Button from "./Button";
-import "./CounterDisplay";
 import CounterDisplay from "./CounterDisplay";
 import worryBoyBlue from "/src/assets/worryBoyBlue.svg"
 import worryGirlWaterBlue from "/src/assets/worryGirlWaterBlue.svg"

@@ -3,7 +3,7 @@ import "/src/components/Button.css";
 interface ButtonProps {
   label: string;
   className: string;
-  variant: string;
+  variant?: string;
   onUpdate?: (label: string)=> void;
   onPhaseChange?: ()=> void;
 }

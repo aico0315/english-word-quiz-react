@@ -11,7 +11,6 @@ import AnswerScreen from "./components/AnswerScreen";
 import AllAnsweredView from "./components/AllAnsweredView";
 import WordManager from "./components/WordManager";
 import correctnessCheck from "./utils/correctnessCheck";
-// import getSortedCategories from "./utils/getSortedCategories";
 import getWordsByCategory from "./utils/getWordsByCategory";
 import shuffleQuestions from "./utils/shuffleQuestions";
 import { AnimatePresence } from "motion/react";

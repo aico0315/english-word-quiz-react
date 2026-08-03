@@ -10,7 +10,6 @@ export default function AnswerScreen ({ wordArray, className, onCurrentIndex, on
   const currentIndex = onCurrentIndex;
   const currentIndexDisplay = onCurrentIndex + 1;
   console.log(onCurrentWord[currentIndex]);
-  
 
   return(
     <div id="answer-view" className={`answer-area ${ className }`}>
