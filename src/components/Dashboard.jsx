@@ -1,5 +1,5 @@
 import '/src/components/Dashboard.css';
-import Button from '/src/components/Button';
+import Button from './Button';
 import talkingChildren from '/src/assets/talkingChildren.png'
 
 export default function Dashboard({ className, onUpdate, onOpen, onDisplay }){

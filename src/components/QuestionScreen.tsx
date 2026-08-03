@@ -3,7 +3,6 @@ import Button from "./Button";
 import CounterDisplay from "./CounterDisplay";
 import worryBoyBlue from "/src/assets/worryBoyBlue.svg"
 import worryGirlWaterBlue from "/src/assets/worryGirlWaterBlue.svg"
-import "/src/components/wordRecords.js";
 import SetQuestion from "./SetQuestion";
 import type { Word } from "../types";
 

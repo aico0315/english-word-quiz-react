@@ -1,4 +1,6 @@
-export const wordRecords = [
+import type { Word } from "../types";
+
+export const wordRecords: Word[] = [
   {
     id: `0000000`,
     category: `計算系`,
