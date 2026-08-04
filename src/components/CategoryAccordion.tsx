@@ -1,8 +1,16 @@
 import getSortedCategories from "../utils/getSortedCategories"
 import getWordsByCategory from "../utils/getWordsByCategory";
 import WordAccordion from "./WordAccordion";
+import type { Word } from "../types";
 
-export default function CategoryAccordion({ allWords, handleClickSetId, handleClickDelete, wordRefs }){
+interface CategoryAccordionProps {
+  allWords: Word[];
+  handleClickSetId: (wordId: string)=> void;
+  handleClickDelete: (wordId: string)=> void;
+  wordRefs: React.RefObject<{ [key: string]: HTMLDivElement | HTMLDetailsElement | null }>;
+}
+
+export default function CategoryAccordion({ allWords, handleClickSetId, handleClickDelete, wordRefs }: CategoryAccordionProps){
   const sortedCategories = getSortedCategories(allWords);
 
   return(

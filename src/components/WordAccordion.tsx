@@ -1,6 +1,14 @@
 import WordDetail from "./WordDetail"
+import type { Word } from "../types";
 
-export default function WordAccordion({ uniqueCategoryWord, handleClickSetId, handleClickDelete, wordRefs }){
+interface WordAccordionProps {
+  uniqueCategoryWord: Word[];
+  handleClickSetId: (wordId: string)=> void;
+  handleClickDelete: (wordId: string)=> void;
+  wordRefs: React.RefObject<{ [key: string]: HTMLDivElement | HTMLDetailsElement | null }>;
+}
+
+export default function WordAccordion({ uniqueCategoryWord, handleClickSetId, handleClickDelete, wordRefs }: WordAccordionProps){
   return(
     uniqueCategoryWord.map((word, index) =>
       <details key={word.id} ref={(el) => { wordRefs.current[word.id] = el }}>

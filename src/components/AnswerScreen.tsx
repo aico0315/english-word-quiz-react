@@ -3,7 +3,6 @@ import CounterDisplay from "./CounterDisplay";
 import ResultMessageDisplay from "./ResultMessageDisplay";
 import "/src/components/AnswerScreen.css";
 import Button from "./Button";
-// import { wordRecords } from "./wordRecords";
 
 export default function AnswerScreen ({ wordArray, className, onCurrentIndex, onCurrentWord, onDisplay, userInput, isCorrect, onReturn }){
   const wordsCount = wordArray.length;

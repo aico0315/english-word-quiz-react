@@ -24,7 +24,7 @@ interface WordManagerProps {
   selectedWordId: string;
   handleClickDelete: (wordId: string)=> void;
   formRef: React.RefObject<HTMLDivElement>;
-  wordRefs: React.RefObject<{ [key: string]: HTMLDivElement}>;
+  wordRefs: React.RefObject<{ [key: string]: HTMLDivElement | HTMLDetailsElement | null }>;
 }
 
 export default function WordManager({ className, wordArray, onReturn, newWord, setNewWord, wordReset, handleClickRegistration, handleClickSetId, selectedWordId, handleClickDelete, formRef, wordRefs }: WordManagerProps){

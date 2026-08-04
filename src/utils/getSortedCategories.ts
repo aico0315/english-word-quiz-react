@@ -1,5 +1,7 @@
-  //カテゴリーを取得・並び替えして返す
-export default function getSortedCategories (wordsArray){
+import type { Word } from "../types"
+
+//カテゴリーを取得・並び替えして返す
+export default function getSortedCategories (wordsArray: Word[]): string[]{
   //結果、["IT用語", "日常英会話", "", "", ....]という親のリストができる
   const uniqueCategories = [...new Set(wordsArray.map(word => word.category || "未設定"))];
 

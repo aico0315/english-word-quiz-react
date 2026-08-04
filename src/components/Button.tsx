@@ -1,10 +1,10 @@
 import "/src/components/Button.css";
 
 interface ButtonProps {
-  label: string;
+  label: string | React.ReactElement;
   className: string;
   variant?: string;
-  onUpdate?: (label: string)=> void;
+  onUpdate?: (label: string | React.ReactElement)=> void;
   onPhaseChange?: ()=> void;
 }
 
