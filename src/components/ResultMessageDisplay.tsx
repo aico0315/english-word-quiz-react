@@ -3,8 +3,11 @@ import correctBoy from "/src/assets/correctBoy@72x.webp";
 import notCorrectBoyGreen from "/src/assets/notCorrectBoyGreen.png";
 import notCorrectGirl from "/src/assets/notCorrectGirl.png";
 
+interface ResultMessageDisplayProps{
+  result: boolean;
+}
 
-export default function ResultMessageDisplay({ result }){
+export default function ResultMessageDisplay({ result }: ResultMessageDisplayProps){
 
   return(
     <>
