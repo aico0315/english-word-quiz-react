@@ -2,7 +2,12 @@ import "/src/components/AllAnsweredView.css";
 import happyBoysAndGirls from "/src/assets/happyBoysAndGirls.png";
 import Button from "./Button";
 
-export default function AllAnsweredView({ className, onReturn }){
+interface AllAnsweredViewProps {
+  className: string;
+  onReturn: ()=> void;
+}
+
+export default function AllAnsweredView({ className, onReturn }: AllAnsweredViewProps){
   return(
     <div id="clear-view" className={`clear-area ${ className }`}>
       <p className="clear-message">全問回答</p>

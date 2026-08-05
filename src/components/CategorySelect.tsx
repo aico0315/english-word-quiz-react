@@ -4,8 +4,17 @@ import "./Dashboard.css";
 import "./CategorySelect.css";
 import getSortedCategories from "../utils/getSortedCategories";
 import { motion } from "motion/react";
+import type { Word } from "../types";
 
-export default function CategorySelect ({ className, wordArray, onUpdate, onClose, onScreenLifecycle }){
+interface CategorySelectProps {
+  className: string;
+  wordArray: Word[];
+  onUpdate: (label: string | React.ReactElement)=> void;
+  onClose: ()=> void;
+  onScreenLifecycle: ()=> void;
+}
+
+export default function CategorySelect ({ className, wordArray, onUpdate, onClose, onScreenLifecycle }: CategorySelectProps){
   const categories = getSortedCategories(wordArray);
 
   return(
@@ -26,7 +35,7 @@ export default function CategorySelect ({ className, wordArray, onUpdate, onClos
           <Button className="weak-words-btn category-btns" variant="text" label="苦手な単語"/>
         </div>
         {/* <Button className="question-continue-btn category-btns" variant="text" label="つづきから"/> */}
-        <Button className="close-btn" variant="subtle" label="× 閉じる" onClick={ onUpdate } onPhaseChange={ onClose }/>
+        <Button className="close-btn" variant="subtle" label="× 閉じる" onUpdate={ onUpdate } onPhaseChange={ onClose }/>
       </motion.div>
     </motion.div>
   )
