@@ -14,28 +14,34 @@ import correctnessCheck from "./utils/correctnessCheck";
 import getWordsByCategory from "./utils/getWordsByCategory";
 import shuffleQuestions from "./utils/shuffleQuestions";
 import { AnimatePresence } from "motion/react";
+import type { Word } from "./types";
+import type { WordFormData } from "./types";
+
+type ScreenName = "dashboard" | "categorySelect" | "questionScreen" | "answerScreen" | "allAnsweredView" | "wordManager";
 
 export default function App(){
   const [ isDark, setIsDark ] = useState(false);
   const handleToggleTheme = () => setIsDark(!isDark);
 
-  const [ categoryWords, setCategoryWords ] = useState(null);
+  const [ categoryWords, setCategoryWords ] = useState< Word[] | null >(null);
 
-  const [ selectedCategory, setSelectedCategory ] = useState(null); //初期値は「未設定」
-  const handleClick = (label) => {
+  const [ selectedCategory, setSelectedCategory ] = useState< string | React.ReactElement | null >(null); //初期値は「未設定」
+  const handleClick = (label: string | React.ReactElement) => {
     setSelectedCategory(label);
-    const result = shuffleQuestions(getWordsByCategory([...wordArray], label));
-    console.log(result);
-    setCategoryWords(result);
-    setUserInput("");
-    setCurrentIndex(0);
+    if(typeof label === "string"){
+      const result = shuffleQuestions(getWordsByCategory([...wordArray], label));
+      console.log(result);
+      setCategoryWords(result);
+      setUserInput("");
+      setCurrentIndex(0);
+    }
   }
 
   const [ isModalOpen, setIsModalOpen ] = useState(false); //最初は消えている
   const handleModalOpen = () => setIsModalOpen(true);
   const handleModalClose = () => setIsModalOpen(false);
 
-  const [ currentScreen, setCurrentScreen ] = useState("dashboard");
+  const [ currentScreen, setCurrentScreen ] = useState< ScreenName >("dashboard");
   const handleWordManagerDisplay = () => setCurrentScreen("wordManager");
   const handleQuestionScreenDisplay = () => {
     setCurrentScreen("questionScreen");
@@ -43,6 +49,8 @@ export default function App(){
   }
 
   const handleQuestionScreenReturn = () => {
+    if(!categoryWords) return;
+
     if(currentIndex + 1 >= categoryWords.length){
       setCurrentScreen("allAnsweredView");
     } else {
@@ -53,6 +61,8 @@ export default function App(){
   }
 
   const handleAnswerScreenDisplay = () => {
+    if(!categoryWords) return;
+
     setCurrentScreen("answerScreen");
     console.log(userInput, categoryWords[currentIndex].answer, currentIndex);
     setIsCorrect(correctnessCheck(userInput, categoryWords[currentIndex].answer));
@@ -62,9 +72,9 @@ export default function App(){
 
   const [ currentIndex, setCurrentIndex ] = useState(0);
   const [ userInput, setUserInput ] = useState("");
-  const [ isCorrect, setIsCorrect ] = useState(null);
+  const [ isCorrect, setIsCorrect ] = useState< boolean | null >(null);
 
-  const [ newWord, setNewWord ] = useState({
+  const [ newWord, setNewWord ] = useState< WordFormData >({
     id: "",
     category: "",
     question: "",
@@ -74,7 +84,7 @@ export default function App(){
 
   const handleNewWordReset = () => {
     if(selectedWordId){
-      wordRefs.current[selectedWordId].scrollIntoView({behavior: "smooth"})
+      wordRefs.current[selectedWordId]?.scrollIntoView({behavior: "smooth"})
     }
     setNewWord(
     {
@@ -88,14 +98,22 @@ export default function App(){
     setSelectedWordId("");
   }
 
-  const [ wordArray, setWordArray ] = useState(localStorage.getItem("userWords") ? JSON.parse(localStorage.getItem("userWords")) : wordRecords);
+  function getInitialWordArray(): Word[] {
+    const saved = localStorage.getItem("userWords");
+    if (saved) {
+      return JSON.parse(saved);
+    }
+    return wordRecords;
+  }
+
+  const [ wordArray, setWordArray ] = useState<Word[]>(getInitialWordArray());
 
   const setLocalStorage = () => localStorage.setItem("userWords", JSON.stringify(wordArray));
   useEffect(setLocalStorage, [wordArray]);
 
   const handleClickRegistration = () => {
     if(selectedWordId){
-      const update = wordArray.map(word => word.id === selectedWordId ? newWord : word);
+      const update = wordArray.map(word => word.id === selectedWordId ? { ...newWord, answer: newWord.answer.split(/[、,]/) } : word);
       setWordArray(update);
     }else{
       const newId = String(Date.now());
@@ -108,27 +126,29 @@ export default function App(){
     handleNewWordReset();
   }
 
-  const formRef = useRef(null);
+  const formRef = useRef<HTMLDivElement | null>(null);
 
   const [ selectedWordId, setSelectedWordId ] = useState("");
-  const handleClickSetId = (wordId) => {
+  const handleClickSetId = (wordId: string) => {
     setSelectedWordId(wordId);
     const getSelectedWord = wordArray.find(word => word.id === wordId);
-    setNewWord({...getSelectedWord, answer: getSelectedWord.answer.join("、")});
-    formRef.current.scrollIntoView({ behavior: "smooth"});
+    if(getSelectedWord){
+      setNewWord({...getSelectedWord, answer: getSelectedWord.answer.join("、")});
+      formRef.current?.scrollIntoView({ behavior: "smooth"});
+    }
   }
 
-  const handleClickDelete = (wordId) => {
+  const handleClickDelete = (wordId: string) => {
     const targetWord = wordArray.find(word => word.id === wordId);
-    console.log(wordId);
-    console.log(targetWord);
+    if(!targetWord) return;
+
     if(window.confirm(`本当に${targetWord.question}を削除しますか？`)){
       const deletedWordArray = wordArray.filter(word => word.id !== wordId);
       setWordArray(deletedWordArray);
     }
   }
 
-  const wordRefs = useRef({});
+  const wordRefs = useRef<{ [key: string]: HTMLDetailsElement | null }>({});
 
   return (
     <div className={`wrapper ${isDark ? "dark-theme" : "light-theme"}`}>
@@ -138,8 +158,8 @@ export default function App(){
         <AnimatePresence>
           {isModalOpen && <CategorySelect key="category-select" className={isDark ? "dark-theme" : "light-theme"} wordArray={ wordArray } onUpdate={ handleClick } onClose={ handleModalClose } onScreenLifecycle={ handleQuestionScreenDisplay }/>}
         </AnimatePresence>
-        {categoryWords && currentScreen === "questionScreen" && <QuestionScreen className={isDark ? "dark-theme" : "light-theme"} onReturn={ handleClickReturnBtn } onDisplay={ handleAnswerScreenDisplay } onCurrentWordArray={ categoryWords } onCurrentIndex={ currentIndex } value={userInput} setUserInput={ setUserInput } counterDis={ handleClick }/>}
-        {currentScreen === "answerScreen" && <AnswerScreen className={isDark ? "dark-theme" : "light-theme"} wordArray={ categoryWords } onReturn={ handleClickReturnBtn } onCurrentIndex={ currentIndex } onDisplay={  handleQuestionScreenReturn } userInput={ userInput } setIsCorrect={ setIsCorrect } isCorrect={ isCorrect }/>}
+        {categoryWords && currentScreen === "questionScreen" && <QuestionScreen className={isDark ? "dark-theme" : "light-theme"} onReturn={ handleClickReturnBtn } onDisplay={ handleAnswerScreenDisplay } onCurrentWordArray={ categoryWords } onCurrentIndex={ currentIndex } value={userInput} setUserInput={ setUserInput } />}
+        {isCorrect !== null && categoryWords && currentScreen === "answerScreen" && <AnswerScreen className={isDark ? "dark-theme" : "light-theme"} wordArray={ categoryWords } onReturn={ handleClickReturnBtn } onCurrentIndex={ currentIndex } onDisplay={  handleQuestionScreenReturn } userInput={ userInput } isCorrect={ isCorrect }/>}
         {currentScreen === "allAnsweredView" && <AllAnsweredView className={isDark ? "dark-theme" : "light-theme"} onReturn={ handleClickReturnBtn }/>}
         {currentScreen === "wordManager" && <WordManager className={isDark ? "dark-theme" : "light-theme"} wordArray={ wordArray } onReturn= { handleClickReturnBtn } newWord={ newWord } setNewWord={ setNewWord } wordReset={ handleNewWordReset } handleClickRegistration={ handleClickRegistration } handleClickSetId={ handleClickSetId } selectedWordId={ selectedWordId } handleClickDelete={ handleClickDelete } formRef={ formRef } wordRefs={ wordRefs}/>}
       </main>

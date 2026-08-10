@@ -3,14 +3,7 @@ import Button from "./Button";
 import CategoryAccordion from "./CategoryAccordion";
 import type { Word } from "../types"
 import React from "react";
-
-interface WordFormData {
-  id: string;
-  category: string;
-  question: string;
-  answer: string;
-  supplement: string;
-}
+import type { WordFormData } from "../types";
 
 interface WordManagerProps {
   className: string;
@@ -23,8 +16,8 @@ interface WordManagerProps {
   handleClickSetId: (wordId: string)=> void;
   selectedWordId: string;
   handleClickDelete: (wordId: string)=> void;
-  formRef: React.RefObject<HTMLDivElement>;
-  wordRefs: React.RefObject<{ [key: string]: HTMLDivElement | HTMLDetailsElement | null }>;
+  formRef: React.RefObject<HTMLDivElement | null>;
+  wordRefs: React.RefObject<{ [key: string]: HTMLDetailsElement | null }>;
 }
 
 export default function WordManager({ className, wordArray, onReturn, newWord, setNewWord, wordReset, handleClickRegistration, handleClickSetId, selectedWordId, handleClickDelete, formRef, wordRefs }: WordManagerProps){

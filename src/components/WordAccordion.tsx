@@ -5,7 +5,7 @@ interface WordAccordionProps {
   uniqueCategoryWord: Word[];
   handleClickSetId: (wordId: string)=> void;
   handleClickDelete: (wordId: string)=> void;
-  wordRefs: React.RefObject<{ [key: string]: HTMLDivElement | HTMLDetailsElement | null }>;
+  wordRefs: React.RefObject<{ [key: string]: HTMLDetailsElement | null }>;
 }
 
 export default function WordAccordion({ uniqueCategoryWord, handleClickSetId, handleClickDelete, wordRefs }: WordAccordionProps){
