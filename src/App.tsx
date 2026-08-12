@@ -25,12 +25,11 @@ export default function App(){
 
   const [ categoryWords, setCategoryWords ] = useState< Word[] | null >(null);
 
-  const [ selectedCategory, setSelectedCategory ] = useState< string | React.ReactElement | null >(null); //初期値は「未設定」
+  const [ selectedCategory, setSelectedCategory ] = useState< string | null >(null); //初期値は「未設定」
   const handleClick = (label: string | React.ReactElement) => {
-    setSelectedCategory(label);
     if(typeof label === "string"){
+      setSelectedCategory(label);
       const result = shuffleQuestions(getWordsByCategory([...wordArray], label));
-      console.log(result);
       setCategoryWords(result);
       setUserInput("");
       setCurrentIndex(0);
@@ -64,7 +63,6 @@ export default function App(){
     if(!categoryWords) return;
 
     setCurrentScreen("answerScreen");
-    console.log(userInput, categoryWords[currentIndex].answer, currentIndex);
     setIsCorrect(correctnessCheck(userInput, categoryWords[currentIndex].answer));
   }
 
@@ -158,9 +156,9 @@ export default function App(){
         <AnimatePresence>
           {isModalOpen && <CategorySelect key="category-select" className={isDark ? "dark-theme" : "light-theme"} wordArray={ wordArray } onUpdate={ handleClick } onClose={ handleModalClose } onScreenLifecycle={ handleQuestionScreenDisplay }/>}
         </AnimatePresence>
-        {categoryWords && currentScreen === "questionScreen" && <QuestionScreen className={isDark ? "dark-theme" : "light-theme"} onReturn={ handleClickReturnBtn } onDisplay={ handleAnswerScreenDisplay } onCurrentWordArray={ categoryWords } onCurrentIndex={ currentIndex } value={userInput} setUserInput={ setUserInput } />}
-        {isCorrect !== null && categoryWords && currentScreen === "answerScreen" && <AnswerScreen className={isDark ? "dark-theme" : "light-theme"} wordArray={ categoryWords } onReturn={ handleClickReturnBtn } onCurrentIndex={ currentIndex } onDisplay={  handleQuestionScreenReturn } userInput={ userInput } isCorrect={ isCorrect }/>}
-        {currentScreen === "allAnsweredView" && <AllAnsweredView className={isDark ? "dark-theme" : "light-theme"} onReturn={ handleClickReturnBtn }/>}
+        {selectedCategory !== null && categoryWords && currentScreen === "questionScreen" && <QuestionScreen className={isDark ? "dark-theme" : "light-theme"} onReturn={ handleClickReturnBtn } onDisplay={ handleAnswerScreenDisplay } onCurrentWordArray={ categoryWords } onCurrentIndex={ currentIndex } value={userInput} setUserInput={ setUserInput } selectedCategory={ selectedCategory }/>}
+        {selectedCategory !== null &&  isCorrect !== null && categoryWords && currentScreen === "answerScreen" && <AnswerScreen className={isDark ? "dark-theme" : "light-theme"} wordArray={ categoryWords } onReturn={ handleClickReturnBtn } onCurrentIndex={ currentIndex } onDisplay={  handleQuestionScreenReturn } userInput={ userInput } isCorrect={ isCorrect } selectedCategory={ selectedCategory }/>}
+        {currentScreen === "allAnsweredView" && <AllAnsweredView className={isDark ? "dark-theme" : "light-theme"} onReturn={ handleClickReturnBtn } />}
         {currentScreen === "wordManager" && <WordManager className={isDark ? "dark-theme" : "light-theme"} wordArray={ wordArray } onReturn= { handleClickReturnBtn } newWord={ newWord } setNewWord={ setNewWord } wordReset={ handleNewWordReset } handleClickRegistration={ handleClickRegistration } handleClickSetId={ handleClickSetId } selectedWordId={ selectedWordId } handleClickDelete={ handleClickDelete } formRef={ formRef } wordRefs={ wordRefs}/>}
       </main>
     </div>

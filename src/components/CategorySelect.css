@@ -43,7 +43,8 @@
 
 /* 背景色・文字色 */
 .dark-theme .menu-list,
-.dark-theme .category-btns {
+.dark-theme .category-btns,
+.dark-theme .category-list-scroll-area {
   background-color: var(--darkModeBaseColor); /* 濃いグレー */
   color: var(--darkModeFontColor);            /* 柔らかい白 */
 }

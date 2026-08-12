@@ -3,7 +3,7 @@
   height: 98%;
   display: grid;
   place-items: center;
-  grid-template-rows: auto 8% auto auto auto 3%;
+  grid-template-rows: 10% 8% auto 20% auto;
   gap: var(--space-l);
 }
 
@@ -22,6 +22,14 @@
   font-family: var(--japanese);
   white-space: pre-wrap;
   padding-left: 8px;
+}
+
+.message-true {
+  color: rgb(98, 123, 54);
+}
+
+.message-false {
+  color: rgb(196, 51, 51);
 }
 
 .result-message-icon-left,

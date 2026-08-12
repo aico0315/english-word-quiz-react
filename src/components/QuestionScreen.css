@@ -3,12 +3,18 @@
   height: 100%;
   display: grid;
   place-items: center;
-  grid-template-rows: 23% 35% 20% 8% 5%;
-  gap: var(--space-l);
+  grid-template-rows: 8% 12% 38% 15% auto;
+  gap: var(--space-m);
+  margin-top: 10px;
+}
+
+.selected-category {
+  font-size: 1.4rem;
+  color: rgb(122, 123, 124);
 }
 
 .counter-and-img-area {
-  padding-top: 50px;
+  /* padding-top: 50px; */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   width: 100%;

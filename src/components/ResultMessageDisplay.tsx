@@ -14,13 +14,13 @@ export default function ResultMessageDisplay({ result }: ResultMessageDisplayPro
       {result ? (
         <div className="result-message-area">
           <img className="result-message-icon-left" src={ correctGirl } alt="腕で大きな丸を作り正解を示す少女" />
-          <p className="result-message">正解！</p>
+          <p className="result-message message-true">正解</p>
           <img className="result-message-icon-left" src={ correctBoy } alt="腕で大きな丸を作り正解を示す少年" />
         </div>
         ) : (
         <div className="result-message-area">
           <img className="result-message-icon-left" src={ notCorrectGirl } alt="腕で大きな丸を作り正解を示す少女" />
-          <p className="result-message">残念！</p>
+          <p className="result-message message-false">残念</p>
           <img className="result-message-icon-left" src={ notCorrectBoyGreen } alt="腕で大きな丸を作り正解を示す少年" />
         </div>
       )}
