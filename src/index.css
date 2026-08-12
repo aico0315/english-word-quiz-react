@@ -13,8 +13,8 @@ button {
 
 :root {
   /* color変数 */
-  --baseColor: rgb(255, 253, 249);
-  --sectionBaseColor: rgb(253, 249, 249);
+  --baseColor: rgb(246, 245, 242);
+  --sectionBaseColor: rgb(243, 242, 237);
   --mainColor: #4a3b34d0;
   --btnColor: #EFE7DC;
   --accentColorRed: #d77979b0;
@@ -38,8 +38,9 @@ button {
   --english: 'メイリオ', 'ヒラギノ角ゴシック', Arial;
   --japanese: "Noto Sans JP";
 
+
   /* ===ダークモード時=== */
-  --darkModeBaseColor: #1a1a1a;
+  --darkModeBaseColor: #201f1f;
   --darkModeFontColor: #f9eed9;
 
   /* ボーダー */
@@ -47,7 +48,7 @@ button {
   --darkModeItemShadow: 0.5px 0.5px 0.8px 1.2px #fafafbd3;
 
   /* ボタン */
-  --darkModeBtnColor: #be7c4c97;
+  --darkModeBtnColor: #bf845a97;
   --darkModeItemShadow: 0.5px 0.5px 0.8px 1.2px #dfdfe1d3;
 }
 

@@ -109,6 +109,8 @@ export default function App(){
   const setLocalStorage = () => localStorage.setItem("userWords", JSON.stringify(wordArray));
   useEffect(setLocalStorage, [wordArray]);
 
+  const [ showSuccessMessage, setShowSuccessMessage ] = useState(false);
+
   const handleClickRegistration = () => {
     if(selectedWordId){
       const update = wordArray.map(word => word.id === selectedWordId ? { ...newWord, answer: newWord.answer.split(/[、,]/) } : word);
@@ -120,6 +122,8 @@ export default function App(){
         console.log(newArray);
         return newArray;
       });
+      setShowSuccessMessage(true);
+      setTimeout(()=> setShowSuccessMessage(false), 2000);
     }
     handleNewWordReset();
   }
@@ -159,7 +163,7 @@ export default function App(){
         {selectedCategory !== null && categoryWords && currentScreen === "questionScreen" && <QuestionScreen className={isDark ? "dark-theme" : "light-theme"} onReturn={ handleClickReturnBtn } onDisplay={ handleAnswerScreenDisplay } onCurrentWordArray={ categoryWords } onCurrentIndex={ currentIndex } value={userInput} setUserInput={ setUserInput } selectedCategory={ selectedCategory }/>}
         {selectedCategory !== null &&  isCorrect !== null && categoryWords && currentScreen === "answerScreen" && <AnswerScreen className={isDark ? "dark-theme" : "light-theme"} wordArray={ categoryWords } onReturn={ handleClickReturnBtn } onCurrentIndex={ currentIndex } onDisplay={  handleQuestionScreenReturn } userInput={ userInput } isCorrect={ isCorrect } selectedCategory={ selectedCategory }/>}
         {currentScreen === "allAnsweredView" && <AllAnsweredView className={isDark ? "dark-theme" : "light-theme"} onReturn={ handleClickReturnBtn } />}
-        {currentScreen === "wordManager" && <WordManager className={isDark ? "dark-theme" : "light-theme"} wordArray={ wordArray } onReturn= { handleClickReturnBtn } newWord={ newWord } setNewWord={ setNewWord } wordReset={ handleNewWordReset } handleClickRegistration={ handleClickRegistration } handleClickSetId={ handleClickSetId } selectedWordId={ selectedWordId } handleClickDelete={ handleClickDelete } formRef={ formRef } wordRefs={ wordRefs}/>}
+        {currentScreen === "wordManager" && <WordManager className={isDark ? "dark-theme" : "light-theme"} wordArray={ wordArray } onReturn= { handleClickReturnBtn } newWord={ newWord } setNewWord={ setNewWord } wordReset={ handleNewWordReset } handleClickRegistration={ handleClickRegistration } handleClickSetId={ handleClickSetId } selectedWordId={ selectedWordId } handleClickDelete={ handleClickDelete } formRef={ formRef } wordRefs={ wordRefs} showSuccessMessage={ showSuccessMessage }/>}
       </main>
     </div>
   )

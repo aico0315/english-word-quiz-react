@@ -18,9 +18,10 @@ interface WordManagerProps {
   handleClickDelete: (wordId: string)=> void;
   formRef: React.RefObject<HTMLDivElement | null>;
   wordRefs: React.RefObject<{ [key: string]: HTMLDetailsElement | null }>;
+  showSuccessMessage: boolean;
 }
 
-export default function WordManager({ className, wordArray, onReturn, newWord, setNewWord, wordReset, handleClickRegistration, handleClickSetId, selectedWordId, handleClickDelete, formRef, wordRefs }: WordManagerProps){
+export default function WordManager({ className, wordArray, onReturn, newWord, setNewWord, wordReset, handleClickRegistration, handleClickSetId, selectedWordId, handleClickDelete, formRef, wordRefs, showSuccessMessage }: WordManagerProps){
 
   return(
     <div id="add-question-view" ref={ formRef } className={`add-question-area ${className}`}>
@@ -42,6 +43,9 @@ export default function WordManager({ className, wordArray, onReturn, newWord, s
         <p className="supplementary-information">補足情報を入力してね（読み方など）</p>
         <textarea className="input-supplementary-information" type="text" name="input-add-supplementary" value={ newWord.supplement } onChange={ (e) => setNewWord({...newWord, supplement: e.target.value}) }></textarea>
       </div>
+      <p className={`show-success-message ${showSuccessMessage ? "open" : ""}`}>
+        <span>登録しました</span>
+      </p>
       <div className="add-btn-area">
         <Button className="cancel-btn" variant="primary" label="キャンセル" onPhaseChange={ wordReset }/>
         <Button className="add-btn" variant="primary" label={ selectedWordId ? "更新" : "登録" } onPhaseChange={ handleClickRegistration }/>
