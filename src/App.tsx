@@ -114,10 +114,10 @@ export default function App(){
       const update = wordArray.map(word => word.id === selectedWordId ? { ...newWord, answer: newWord.answer.split(/[、,]/) } : word);
       setWordArray(update);
     }else{
-      const newId = String(Date.now());
+      const newId = crypto.randomUUID();
       setWordArray(prev => {
         const newArray = [...prev, {...newWord, answer : newWord.answer.split(/[、,]/), id: newId}]
-        console.log(newArray)
+        console.log(newArray);
         return newArray;
       });
     }
