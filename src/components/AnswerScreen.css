@@ -50,12 +50,12 @@
   place-items: center;
   gap: 5px;
   width: 100%;
-  min-height: 200px;
+  min-height: 230px;
   border-radius: 6px;
   box-shadow: var(--itemShadow);
   background-color: var(--sectionBaseColor);
   padding: 10px;
-  margin-top: -10px;
+  margin-top: -8px;
 }
 
 .correct-answer-title {
@@ -83,6 +83,7 @@
   height: 100%;
   word-break: break-word;
   color: var(--questionColor);
+  padding-top: 12px;
 }
 
 .supplement-message {
